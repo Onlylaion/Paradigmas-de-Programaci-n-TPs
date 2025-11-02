@@ -1,0 +1,5 @@
+package discografica;
+
+public enum Rol {
+	VOZ_PRINCIPAL,GUITARRISTA,BAJISTA,BATERO,CORISTA,TECLADISTA
+}
