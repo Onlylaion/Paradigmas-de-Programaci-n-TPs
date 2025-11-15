@@ -1,5 +1,5 @@
-package concierto;
+package Dominio;
 
-enum Rol {
+public enum Rol {
 	VozPrincipal, Guitarrista, Bajista, Baterista, Corista, Tecladista
 }
