@@ -1,4 +1,4 @@
-package concierto;
+package Dominio;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,8 +68,7 @@ public class Contrato {
 						}
 					}
 				} catch (Exception e) {
-					System.out.println("Error al contratar para " + rol + ": " + e.getMessage());
-					return false;
+					System.out.println("Error al contratar a " + artistoSeleccionado + " en " + rol + " para la cancion " + cancion.getNombreCancion() + ": " + e.getMessage());
 				}
 			} else {
 				System.out.println("No hay artista disponible para el rol: " + rol);

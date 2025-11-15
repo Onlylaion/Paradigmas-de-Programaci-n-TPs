@@ -1,4 +1,4 @@
-package concierto;
+package Aplicacion;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+
+import Dominio.Artista;
+import Dominio.Banda;
+import Dominio.Cancion;
+import Dominio.Contrato;
+import Dominio.Recital;
+import Dominio.Rol;
 
 public class Menu {
 	private Recital recital;
