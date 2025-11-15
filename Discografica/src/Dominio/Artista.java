@@ -14,7 +14,7 @@ public class Artista {
 	private int maxCanciones;
 	private boolean descuento;
 	private double recargo;
-	private Set<Rol> rolesEntenados;
+	private Set<Rol> rolesEntrenados;
 
 	public Artista(String nombreArtista, List<Rol> rolesHistoricos, List<Banda> bandasHistoricas,
 			double costoCancionBase, int maxCanciones) {
@@ -27,7 +27,7 @@ public class Artista {
 		this.maxCanciones = maxCanciones;
 		this.descuento = false;
 		this.recargo = 0;
-		this.rolesEntenados = new HashSet<>();
+		this.rolesEntrenados = new HashSet<>();
 	}
 
 	// GETTERS
@@ -68,8 +68,8 @@ public class Artista {
 		return this.recargo;
 	}
 
-	public Set<Rol> getRolesEntenados() {
-		return this.rolesEntenados;
+	public Set<Rol> getRolesEntrenados() {
+		return this.rolesEntrenados;
 	}
 
 	// ============ MÉTODOS DEL DIAGRAMA ============
@@ -88,7 +88,7 @@ public class Artista {
 	}
 
 	public boolean estaCalificadoParaLaCancion(Rol rol) {
-		return RolesHistoricos.contains(rol) || rolesEntenados.contains(rol);
+		return RolesHistoricos.contains(rol) || rolesEntrenados.contains(rol);
 	}
 
 	// Aca te tiro una excepcion si quieren entrenar alguien que ya tiene cierta
@@ -97,7 +97,7 @@ public class Artista {
 		if (estaCalificadoParaLaCancion(rol)) {
 			throw new Exception("No se puede entrenar una habilidad a alguien que ya tiene una habilidad");
 		} else {
-			rolesEntenados.add(rol);
+			rolesEntrenados.add(rol);
 			recargo += costoCancionBase * 0.5;
 		}
 	}
@@ -160,7 +160,7 @@ public class Artista {
 
 	// Es la cantidad de veces que aprendio un nuevo rol, o los roles entrenados
 	public int cantidadEntrenamientos() {
-		return rolesEntenados.size();
+		return rolesEntrenados.size();
 	}
 
 	@Override
