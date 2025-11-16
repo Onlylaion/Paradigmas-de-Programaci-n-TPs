@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.Set;
 
 public class Recital {
+	private int idRecital;
 	private Set<Cancion> listaCanciones;
 	private Set<Artista> artistasBase;
 	private Set<Artista> artistasContratados;
@@ -20,6 +21,9 @@ public class Recital {
 	}
 
 	// ============ GETTERS ============
+	public int getId() {
+		return this.idRecital;
+	}
 
 	public Set<Cancion> getListaCanciones() {
 		return this.listaCanciones;
@@ -38,6 +42,9 @@ public class Recital {
 	}
 
 	// ============ AGREGAR ELEMENTOS ============
+	public void setId(int id) {
+		this.idRecital = id;
+	}
 
 	public void agregarCancion(Cancion otra) {
 		this.listaCanciones.add(otra);

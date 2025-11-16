@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Cancion {
+	private int idCancion;
 	private String nombreCancion;
 	private double duracion;
 	private HashMap<Rol, Integer> mapRoles; // Es entero por la cantidad de roles repetibles
@@ -17,6 +18,10 @@ public class Cancion {
 		this.duracion = duracion;
 		this.mapRoles = new HashMap<>(rolesRequeridos);
 		this.artistasAsignados = new ArrayList<>();
+	}
+
+	public int getId() {
+		return this.idCancion;
 	}
 
 	public String getNombreCancion() {
@@ -33,6 +38,10 @@ public class Cancion {
 
 	public HashMap<Rol, Integer> getMapRoles() {
 		return this.mapRoles;
+	}
+
+	public void setIdCancion(int id) {
+		this.idCancion = id;
 	}
 
 	/**
@@ -69,7 +78,7 @@ public class Cancion {
 		}
 
 		// Si no encontró en históricos, buscar en roles entrenados
-		for (Rol rolEntrenado : otro.getRolesEntenados()) {
+		for (Rol rolEntrenado : otro.getRolesEntrenados()) {
 			if (mapRoles.containsKey(rolEntrenado) && mapRoles.get(rolEntrenado) > 0) {
 				// Decrementar el rol disponible
 				mapRoles.put(rolEntrenado, mapRoles.get(rolEntrenado) - 1);
@@ -99,7 +108,7 @@ public class Cancion {
 		}
 
 		if (rolOcupado == null) {
-			for (Rol rol : artista.getRolesEntenados()) {
+			for (Rol rol : artista.getRolesEntrenados()) {
 				if (mapRoles.containsKey(rol)) {
 					rolOcupado = rol;
 				}

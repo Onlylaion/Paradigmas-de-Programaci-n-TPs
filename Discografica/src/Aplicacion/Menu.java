@@ -15,102 +15,24 @@ import Dominio.Cancion;
 import Dominio.Contrato;
 import Dominio.Recital;
 import Dominio.Rol;
+import Servicio.InterfazUsuarioConsola;
 
 public class Menu {
+	private InterfazUsuarioConsola interfazUsuario;
 	private Recital recital;
 	private Contrato contrato;
 	private Scanner scanner;
-	private List<Artista> artistasCandidatos;
+	//private List<Artista> artistasCandidatos;
 
 	public Menu() {
 		this.scanner = new Scanner(System.in);
-		this.artistasCandidatos = new ArrayList<>();
+		//this.artistasCandidatos = new ArrayList<>();
+		this.interfazUsuario = new InterfazUsuarioConsola();
 		inicializarDatos();
 	}
 
 	private void inicializarDatos() {
-		// Crear artistas base (Queen)
-		Set<Artista> artistasBase = new HashSet<>();
-
-		List<Rol> rolesBrian = new ArrayList<>();
-		rolesBrian.add(Rol.Guitarrista);
-		rolesBrian.add(Rol.VozPrincipal);
-		List<Banda> bandasBrian = new ArrayList<>();
-		bandasBrian.add(new Banda("Queen", new ArrayList<>()));
-		Artista brian = new Artista("Brian May", rolesBrian, bandasBrian, 0, 100);
-
-		List<Rol> rolesRoger = new ArrayList<>();
-		rolesRoger.add(Rol.Baterista);
-		List<Banda> bandasRoger = new ArrayList<>();
-		bandasRoger.add(new Banda("Queen", new ArrayList<>()));
-		Artista roger = new Artista("Roger Taylor", rolesRoger, bandasRoger, 0, 100);
-
-		List<Rol> rolesJohn = new ArrayList<>();
-		rolesJohn.add(Rol.Bajista);
-		List<Banda> bandasJohn = new ArrayList<>();
-		bandasJohn.add(new Banda("Queen", new ArrayList<>()));
-		Artista john = new Artista("John Deacon", rolesJohn, bandasJohn, 0, 100);
-
-		artistasBase.add(brian);
-		artistasBase.add(roger);
-		artistasBase.add(john);
-
-		// Crear artistas candidatos para contratar
-		List<Rol> rolesDavid = new ArrayList<>();
-		rolesDavid.add(Rol.VozPrincipal);
-		List<Banda> bandasDavid = new ArrayList<>();
-		bandasDavid.add(new Banda("David Bowie", new ArrayList<>()));
-		Artista david = new Artista("David Bowie", rolesDavid, bandasDavid, 1500, 2);
-
-		List<Rol> rolesElton = new ArrayList<>();
-		rolesElton.add(Rol.VozPrincipal);
-		rolesElton.add(Rol.Tecladista);
-		List<Banda> bandasElton = new ArrayList<>();
-		bandasElton.add(new Banda("Elton John", new ArrayList<>()));
-		Artista elton = new Artista("Elton John", rolesElton, bandasElton, 1200, 2);
-
-		List<Rol> rolesAnnie = new ArrayList<>();
-		rolesAnnie.add(Rol.VozPrincipal);
-		List<Banda> bandasAnnie = new ArrayList<>();
-		bandasAnnie.add(new Banda("Eurythmics", new ArrayList<>()));
-		Artista annie = new Artista("Annie Lennox", rolesAnnie, bandasAnnie, 900, 2);
-
-		artistasCandidatos.add(david);
-		artistasCandidatos.add(elton);
-		artistasCandidatos.add(annie);
-
-		// Crear canciones
-		Set<Cancion> canciones = new HashSet<>();
-
-		Map<Rol, Integer> rolesWillRock = new HashMap<>();
-		rolesWillRock.put(Rol.VozPrincipal, 1);
-		rolesWillRock.put(Rol.Guitarrista, 1);
-		rolesWillRock.put(Rol.Bajista, 1);
-		rolesWillRock.put(Rol.Baterista, 1);
-		Cancion willRock = new Cancion("We Will Rock You", 3.5, rolesWillRock);
-
-		Map<Rol, Integer> rolesSomeone = new HashMap<>();
-		rolesSomeone.put(Rol.VozPrincipal, 1);
-		rolesSomeone.put(Rol.Guitarrista, 1);
-		rolesSomeone.put(Rol.Bajista, 1);
-		rolesSomeone.put(Rol.Baterista, 1);
-		rolesSomeone.put(Rol.Tecladista, 1);
-		Cancion someone = new Cancion("Somebody to Love", 4.2, rolesSomeone);
-
-		Map<Rol, Integer> rolesDays = new HashMap<>();
-		rolesDays.put(Rol.VozPrincipal, 2);
-		rolesDays.put(Rol.Guitarrista, 1);
-		rolesDays.put(Rol.Bajista, 1);
-		rolesDays.put(Rol.Baterista, 1);
-		Cancion days = new Cancion("These Are the Days of Our Lives", 5.0, rolesDays);
-
-		canciones.add(willRock);
-		canciones.add(someone);
-		canciones.add(days);
-
-		// Crear recital
-		this.recital = new Recital(canciones, artistasBase, new HashSet<>(), new Date());
-		this.contrato = new Contrato(1, recital, artistasCandidatos);
+		interfazUsuario.inicializar();
 	}
 
 	public void mostrarMenu() {
@@ -132,22 +54,24 @@ public class Menu {
 			System.out.println("9. Ver informacion del recital");
 			System.out.println("10. Salir\n");
 
-			System.out.print("Selecciona una opcion: ");
-			int opcion = scanner.nextInt();
-			scanner.nextLine();
+			int opcion = interfazUsuario.obtenerComando();
 
 			switch (opcion) {
 			case 1:
-				rolesFaltantesCancion();
+				System.out.println("\n=== ROLES FALTANTES POR CANCION ===\n");
+				interfazUsuario.rolesFaltantesCancion();
 				break;
 			case 2:
-				rolesFaltantesTotal();
+				System.out.println("\n=== ROLES FALTANTES TOTAL ===\n");
+				interfazUsuario.rolesFaltantesTotal();
 				break;
 			case 3:
-				contratarUnaCancion();
+				System.out.println("\n=== CONTRATAR PARA UNA CANCION ===\n");
+				interfazUsuario.contratarUnaCancion();
 				break;
 			case 4:
-				contratarTodasCanciones();
+				System.out.println("\n=== CONTRATAR TODAS LAS CANCIONES ===\n");
+				interfazUsuario.contratarTodasCanciones();
 				break;
 			case 5:
 				entrenarArtista();
@@ -176,101 +100,7 @@ public class Menu {
 		scanner.close();
 	}
 
-	private void rolesFaltantesCancion() {
-		System.out.println("\n=== ROLES FALTANTES POR CANCION ===\n");
-
-		int indice = 1;
-		Map<Integer, Cancion> canciones = new HashMap<>();
-
-		for (Cancion cancion : recital.getListaCanciones()) {
-			canciones.put(indice, cancion);
-			System.out.println(indice + ". " + cancion.getNombreCancion());
-			indice++;
-		}
-
-		System.out.print("\nSelecciona una cancion (numero): ");
-		int seleccion = scanner.nextInt();
-		scanner.nextLine();
-
-		Cancion seleccionada = canciones.get(seleccion);
-
-		if (seleccionada == null) {
-			System.out.println("Cancion no encontrada.");
-			return;
-		}
-
-		Map<Rol, Integer> rolesFaltantes = recital.getRolesFaltantesCancion(seleccionada);
-
-		System.out.println("\nRoles faltantes para: " + seleccionada.getNombreCancion());
-		System.out.println("--------------------------------");
-
-		if (rolesFaltantes.isEmpty()) {
-			System.out.println("Todos los roles estan cubiertos!");
-		} else {
-			for (Map.Entry<Rol, Integer> entry : rolesFaltantes.entrySet()) {
-				System.out.println("  " + entry.getKey() + ": " + entry.getValue());
-			}
-		}
-	}
-
-	private void rolesFaltantesTotal() {
-		System.out.println("\n=== ROLES FALTANTES TOTAL ===\n");
-
-		Map<Rol, Integer> rolesFaltantes = recital.getRolesFaltantesTotal();
-
-		if (rolesFaltantes.isEmpty()) {
-			System.out.println("Todos los roles estan cubiertos!");
-		} else {
-			System.out.println("Roles faltantes para el recital completo:");
-			System.out.println("--------------------------------");
-			for (Map.Entry<Rol, Integer> entry : rolesFaltantes.entrySet()) {
-				System.out.println("  " + entry.getKey() + ": " + entry.getValue());
-			}
-		}
-	}
-
-	private void contratarUnaCancion() {
-		System.out.println("\n=== CONTRATAR PARA UNA CANCION ===\n");
-
-		int indice = 1;
-		Map<Integer, Cancion> canciones = new HashMap<>();
-
-		for (Cancion cancion : recital.getListaCanciones()) {
-			if (!cancion.puestosCubiertos()) {
-				canciones.put(indice, cancion);
-				System.out.println(indice + ". " + cancion.getNombreCancion());
-				indice++;
-			}
-		}
-
-		if (canciones.isEmpty()) {
-			System.out.println("Todas las canciones ya estan completas!");
-			return;
-		}
-
-		System.out.print("\nSelecciona una cancion (numero): ");
-		int seleccion = scanner.nextInt();
-		scanner.nextLine();
-
-		Cancion seleccionada = canciones.get(seleccion);
-
-		if (seleccionada == null) {
-			System.out.println("Cancion no encontrada.");
-			return;
-		}
-
-		boolean resultado = contrato.contratoPorCancion(seleccionada);
-
-		if (resultado) {
-			System.out.println("\nContratacion exitosa!");
-			System.out.println("Costo total del contrato: $" + String.format("%.2f", contrato.getCostoTotal()));
-		} else {
-			System.out.println("\nNo se pudo completar la contratacion.");
-		}
-	}
-
 	private void contratarTodasCanciones() {
-		System.out.println("\n=== CONTRATAR TODAS LAS CANCIONES ===\n");
 
 		double costo = contrato.contratoTodasCanciones();
 

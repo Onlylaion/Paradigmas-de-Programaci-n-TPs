@@ -14,8 +14,7 @@ public class Contrato {
 
 	// ============ CONSTRUCTOR ============
 
-	public Contrato(long idContrato, Recital recital, List<Artista> artistasCandidatos) {
-		this.idContrato = idContrato;
+	public Contrato(Recital recital, List<Artista> artistasCandidatos) {
 		this.recital = recital;
 		this.artistasCandidatos = new ArrayList<>(artistasCandidatos);
 		this.asignacionesPorCancion = new HashMap<>();
@@ -26,6 +25,10 @@ public class Contrato {
 
 	public long getIdContrato() {
 		return this.idContrato;
+	}
+
+	public void setIdContrato(long idContrato) {
+		this.idContrato = idContrato;
 	}
 
 	public Recital getRecital() {
