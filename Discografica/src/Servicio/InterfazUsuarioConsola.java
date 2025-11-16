@@ -1,6 +1,7 @@
 package Servicio;
 
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Scanner;
@@ -128,6 +129,34 @@ public class InterfazUsuarioConsola {
             double costoTotal = controladorContrato.contratarPorCancion(seleccionada);
             System.out.println("\nContratacion exitosa!");
             System.out.println("Costo total del contrato: $" + String.format("%.2f", costoTotal));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+	}
+
+    public void contratarTodasCanciones() {
+        Set<Cancion> canciones = null;
+        try {
+            canciones = controladorCancion.obtenerCancionesConPuestosFaltantes();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+        
+        try {
+            double costoTotalContrataciones = controladorContrato.contratoTodasCanciones(canciones);
+            System.out.println("Contratacion finalizada!");
+            System.out.println("Costo total: $" + String.format("%.2f", costoTotalContrataciones));
+
+            for(Cancion c : canciones) {
+                System.out.println("\nAsignaciones para la cancion: " + c.getNombreCancion());
+                System.out.println("--------------------------------");
+                List<Artista> artistasAsignados = controladorContrato.obtenerArtistasContratadosPorCancion(c).get(c);
+                for(Artista a : artistasAsignados) {
+                    System.out.println(" - " + a.getNombre());
+                }
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return;

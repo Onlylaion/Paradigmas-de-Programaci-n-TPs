@@ -190,19 +190,6 @@ public class Contrato {
 		System.out.println("COSTO TOTAL DEL CONTRATO: $" + String.format("%.2f", costoTotal));
 	}
 
-	public HashMap<Cancion, List<Artista>> asignacionesPorIdCancion(int idCancion) throws Exception {
-		HashMap<Cancion, List<Artista>> resultado = new HashMap<>();
-		for(Map.Entry<Cancion, List<Artista>> entry : asignacionesPorCancion.entrySet()) {
-			if(entry.getKey().getId() == idCancion) {
-				resultado.put(entry.getKey(), entry.getValue());
-			}
-		}
-		if(resultado.isEmpty()) {
-			throw new Exception("No hay asignaciones para la cancion con ID: " + idCancion);
-		}
-		return resultado;
-	}
-
 	@Override
 	public String toString() {
 		return "Contrato{" + "id=" + idContrato + ", canciones=" + asignacionesPorCancion.size()

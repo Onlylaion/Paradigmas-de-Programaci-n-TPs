@@ -22,6 +22,10 @@ public class ContratoRepository {
         contratos.remove(contrato);
     }
 
+    public List<Contrato> obtenerContratos() {
+        return contratos;
+    }
+
     public Contrato findById(int idContrato) {
         for (Contrato contratoActual : contratos) {
             if (contratoActual.getIdContrato() == idContrato) {

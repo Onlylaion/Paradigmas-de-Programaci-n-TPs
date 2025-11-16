@@ -70,7 +70,8 @@ public class Menu {
 				interfazUsuario.contratarUnaCancion();
 				break;
 			case 4:
-				contratarTodasCanciones();
+				System.out.println("\n=== CONTRATAR TODAS LAS CANCIONES ===\n");
+				interfazUsuario.contratarTodasCanciones();
 				break;
 			case 5:
 				entrenarArtista();
@@ -99,47 +100,7 @@ public class Menu {
 		scanner.close();
 	}
 
-	private void contratarUnaCancion() {
-
-		int indice = 1;
-		Map<Integer, Cancion> canciones = new HashMap<>();
-
-		for (Cancion cancion : recital.getListaCanciones()) {
-			if (!cancion.puestosCubiertos()) {
-				canciones.put(indice, cancion);
-				System.out.println(indice + ". " + cancion.getNombreCancion());
-				indice++;
-			}
-		}
-
-		if (canciones.isEmpty()) {
-			System.out.println("Todas las canciones ya estan completas!");
-			return;
-		}
-
-		System.out.print("\nSelecciona una cancion (numero): ");
-		int seleccion = scanner.nextInt();
-		scanner.nextLine();
-
-		Cancion seleccionada = canciones.get(seleccion);
-
-		if (seleccionada == null) {
-			System.out.println("Cancion no encontrada.");
-			return;
-		}
-
-		boolean resultado = contrato.contratoPorCancion(seleccionada);
-
-		if (resultado) {
-			System.out.println("\nContratacion exitosa!");
-			System.out.println("Costo total del contrato: $" + String.format("%.2f", contrato.getCostoTotal()));
-		} else {
-			System.out.println("\nNo se pudo completar la contratacion.");
-		}
-	}
-
 	private void contratarTodasCanciones() {
-		System.out.println("\n=== CONTRATAR TODAS LAS CANCIONES ===\n");
 
 		double costo = contrato.contratoTodasCanciones();
 
