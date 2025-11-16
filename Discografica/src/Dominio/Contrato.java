@@ -14,8 +14,7 @@ public class Contrato {
 
 	// ============ CONSTRUCTOR ============
 
-	public Contrato(long idContrato, Recital recital, List<Artista> artistasCandidatos) {
-		this.idContrato = idContrato;
+	public Contrato(Recital recital, List<Artista> artistasCandidatos) {
 		this.recital = recital;
 		this.artistasCandidatos = new ArrayList<>(artistasCandidatos);
 		this.asignacionesPorCancion = new HashMap<>();
@@ -26,6 +25,10 @@ public class Contrato {
 
 	public long getIdContrato() {
 		return this.idContrato;
+	}
+
+	public void setIdContrato(long idContrato) {
+		this.idContrato = idContrato;
 	}
 
 	public Recital getRecital() {
@@ -185,6 +188,19 @@ public class Contrato {
 		}
 
 		System.out.println("COSTO TOTAL DEL CONTRATO: $" + String.format("%.2f", costoTotal));
+	}
+
+	public HashMap<Cancion, List<Artista>> asignacionesPorIdCancion(int idCancion) throws Exception {
+		HashMap<Cancion, List<Artista>> resultado = new HashMap<>();
+		for(Map.Entry<Cancion, List<Artista>> entry : asignacionesPorCancion.entrySet()) {
+			if(entry.getKey().getId() == idCancion) {
+				resultado.put(entry.getKey(), entry.getValue());
+			}
+		}
+		if(resultado.isEmpty()) {
+			throw new Exception("No hay asignaciones para la cancion con ID: " + idCancion);
+		}
+		return resultado;
 	}
 
 	@Override

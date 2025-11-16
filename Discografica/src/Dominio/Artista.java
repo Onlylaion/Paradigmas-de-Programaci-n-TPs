@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 public class Artista {
+	private int id;
 	private String nombreArtista;
 	private List<Rol> RolesHistoricos; // Puedo querer agregarle Roles por si lo entrené
 	private List<Banda> bandasHistoricas; // Puedo querer agregarle a futuro una banda
@@ -31,6 +32,9 @@ public class Artista {
 	}
 
 	// GETTERS
+	public int getId() {
+		return id;
+	}
 
 	public String getNombre() {
 		return nombreArtista;
@@ -70,6 +74,10 @@ public class Artista {
 
 	public Set<Rol> getRolesEntrenados() {
 		return this.rolesEntrenados;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	// ============ MÉTODOS DEL DIAGRAMA ============
