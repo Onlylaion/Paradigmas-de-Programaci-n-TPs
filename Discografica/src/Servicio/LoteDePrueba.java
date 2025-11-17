@@ -11,7 +11,6 @@ import java.util.Set;
 import Dominio.Artista;
 import Dominio.Banda;
 import Dominio.Cancion;
-import Dominio.Contrato;
 import Dominio.Recital;
 import Dominio.Rol;
 import Persistencia.ControllerArtista;
@@ -29,7 +28,8 @@ public class LoteDePrueba {
         this.controllerArtista = new ControllerArtista();
         this.controllerCancion = new ControllerCancion();
         this.controllerRecital = new ControllerRecital();
-        this.controllerContrato = new ControllerContrato();
+		
+        //this.controllerContrato = new ControllerContrato();
     }
 
 	public ControllerArtista getControllerArtista() {
@@ -56,19 +56,19 @@ public class LoteDePrueba {
 		rolesBrian.add(Rol.VozPrincipal);
 		List<Banda> bandasBrian = new ArrayList<>();
 		bandasBrian.add(new Banda("Queen"));
-		Artista brian = new Artista("Brian May", rolesBrian, bandasBrian, 0, 100);
+		Artista brian = new Artista("Brian May", rolesBrian, bandasBrian, 0, 100, 120);
 
 		List<Rol> rolesRoger = new ArrayList<>();
 		rolesRoger.add(Rol.Baterista);
 		List<Banda> bandasRoger = new ArrayList<>();
 		bandasRoger.add(new Banda("Queen"));
-		Artista roger = new Artista("Roger Taylor", rolesRoger, bandasRoger, 0, 100);
+		Artista roger = new Artista("Roger Taylor", rolesRoger, bandasRoger, 0, 100, 100);
 
 		List<Rol> rolesJohn = new ArrayList<>();
 		rolesJohn.add(Rol.Bajista);
 		List<Banda> bandasJohn = new ArrayList<>();
 		bandasJohn.add(new Banda("Queen"));
-		Artista john = new Artista("John Deacon", rolesJohn, bandasJohn, 0, 100);
+		Artista john = new Artista("John Deacon", rolesJohn, bandasJohn, 0, 100, 60);
 
 		artistasBase.add(brian);
 		artistasBase.add(roger);
@@ -85,20 +85,20 @@ public class LoteDePrueba {
 		rolesDavid.add(Rol.VozPrincipal);
 		List<Banda> bandasDavid = new ArrayList<>();
 		bandasDavid.add(new Banda("David Bowie"));
-		Artista david = new Artista("David Bowie", rolesDavid, bandasDavid, 1500, 2);
+		Artista david = new Artista("David Bowie", rolesDavid, bandasDavid, 1500, 2, 30);
 
 		List<Rol> rolesElton = new ArrayList<>();
 		rolesElton.add(Rol.VozPrincipal);
 		rolesElton.add(Rol.Tecladista);
 		List<Banda> bandasElton = new ArrayList<>();
 		bandasElton.add(new Banda("Elton John"));
-		Artista elton = new Artista("Elton John", rolesElton, bandasElton, 1200, 2);
+		Artista elton = new Artista("Elton John", rolesElton, bandasElton, 1200, 2, 60);
 
 		List<Rol> rolesAnnie = new ArrayList<>();
 		rolesAnnie.add(Rol.VozPrincipal);
 		List<Banda> bandasAnnie = new ArrayList<>();
 		bandasAnnie.add(new Banda("Eurythmics"));
-		Artista annie = new Artista("Annie Lennox", rolesAnnie, bandasAnnie, 900, 2);
+		Artista annie = new Artista("Annie Lennox", rolesAnnie, bandasAnnie, 900, 2, 20);
 
 		artistasCandidatos.add(david);
 		artistasCandidatos.add(elton);
@@ -143,8 +143,9 @@ public class LoteDePrueba {
 		// Crear recital
 		Recital recital = new Recital(canciones, artistasBase, new HashSet<>(), new Date());
         controllerRecital.agregarRecital(recital);
-        
-		Contrato contrato = new Contrato(recital, artistasCandidatos);
-        controllerContrato.agregarContrato(contrato);
+
+        this.controllerContrato = new ControllerContrato(recital, artistasCandidatos);
+		/*Contrato contrato = new Contrato(recital, artistasCandidatos);
+        controllerContrato.agregarContrato(contrato);*/
     }
 }

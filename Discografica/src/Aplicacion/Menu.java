@@ -100,7 +100,7 @@ public class Menu {
 		scanner.close();
 	}
 
-	private void contratarTodasCanciones() {
+	/*private void contratarTodasCanciones() {
 
 		double costo = contrato.contratoTodasCanciones();
 
@@ -108,7 +108,7 @@ public class Menu {
 		System.out.println("Costo total: $" + String.format("%.2f", costo));
 
 		contrato.listarAsignaciones();
-	}
+	}*/
 
 	private void entrenarArtista() {
 		System.out.println("\n=== ENTRENAR ARTISTA ===\n");

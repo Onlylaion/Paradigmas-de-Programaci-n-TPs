@@ -16,9 +16,10 @@ public class Artista {
 	private boolean descuento;
 	private double recargo;
 	private Set<Rol> rolesEntrenados;
+	private double disponibilidadHoraria;
 
 	public Artista(String nombreArtista, List<Rol> rolesHistoricos, List<Banda> bandasHistoricas,
-			double costoCancionBase, int maxCanciones) {
+			double costoCancionBase, int maxCanciones, double disponibilidadHoraria) {
 		this.nombreArtista = nombreArtista;
 		this.RolesHistoricos = rolesHistoricos;
 		this.bandasHistoricas = bandasHistoricas;
@@ -29,6 +30,7 @@ public class Artista {
 		this.descuento = false;
 		this.recargo = 0;
 		this.rolesEntrenados = new HashSet<>();
+		this.disponibilidadHoraria = disponibilidadHoraria;
 	}
 
 	// GETTERS
@@ -130,6 +132,10 @@ public class Artista {
 		return this.maxCanciones;
 	}
 
+	public boolean tieneDisponibilidadHoraria(double duracionNuevaCancion) {
+		return (this.disponibilidadHoraria - duracionNuevaCancion) >= 0;
+	}
+
 	// Entrenar implica 50% extra no acumulativo
 	/**
 	 * Entrena al artista en nuevo rol (+50% recargo no acumulativo)
@@ -152,10 +158,15 @@ public class Artista {
 	/**
 	 * Asigna a una canción más
 	 */
-	public void asignarACancion() {
+	public void asignarACancion(double duracionNuevaCancion) throws Exception {
 		if (cancionesAsignadas >= maxCanciones) {
 			throw new IllegalArgumentException("El artista " + nombreArtista + " alcanzó el máximo de canciones");
 		}
+		if ((this.disponibilidadHoraria - duracionNuevaCancion) < 0) {
+			throw new IllegalArgumentException(
+					"El artista " + nombreArtista + " no tiene disponibilidad horaria para la canción");
+		}
+		this.disponibilidadHoraria -= duracionNuevaCancion;
 		cancionesAsignadas++;
 	}
 
@@ -173,7 +184,11 @@ public class Artista {
 
 	@Override
 	public String toString() {
-		return "Artista{" + "nombre='" + nombreArtista + '\'' + ", costo=$" + String.format("%.2f", getCosto())
+		String cad = "Artista{" + "nombre='" + nombreArtista + '\'' + ", costo=$" + String.format("%.2f", getCosto())
 				+ ", canciones=" + cancionesAsignadas + "/" + maxCanciones + '}';
+		for (Rol rol : RolesHistoricos) {
+			cad += "\n  - Rol historico: " + rol;
+		}
+		return cad;
 	}
 }

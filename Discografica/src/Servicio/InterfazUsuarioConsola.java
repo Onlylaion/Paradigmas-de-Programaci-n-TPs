@@ -152,7 +152,7 @@ public class InterfazUsuarioConsola {
             for(Cancion c : canciones) {
                 System.out.println("\nAsignaciones para la cancion: " + c.getNombreCancion());
                 System.out.println("--------------------------------");
-                List<Artista> artistasAsignados = controladorContrato.obtenerArtistasContratadosPorCancion(c).get(c);
+                List<Artista> artistasAsignados = controladorContrato.obtenerArtistasContratadosPorCancion(c);
                 for(Artista a : artistasAsignados) {
                     System.out.println(" - " + a.getNombre());
                 }
