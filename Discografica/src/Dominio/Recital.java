@@ -178,6 +178,27 @@ public class Recital {
 		}
 	}
 
+	public void verEstadoRecital() {
+		System.out.println("\n=== INFORMACION DEL RECITAL ===\n");
+		System.out.println("Fecha del recital: " + fecha);
+		System.out.println("\nCanciones:");
+		for (Cancion cancion : listaCanciones) {
+			System.out.println("- Cancion: " + cancion.getNombreCancion() + " | Duracion: " + cancion.getDuracion() + " minutos");
+			
+		}
+		System.out.println("Cantidad de canciones: " + listaCanciones.size());
+		System.out.println("\nArtistas Base:");
+		for (Artista artista : artistasBase) {
+			System.out.println("- Artista base: " + artista.getNombre());
+		}
+		System.out.println("Cantidad de artistas base: " + artistasBase.size());
+		System.out.println("\nArtistas Contratados:");
+		for (Artista artista : artistasContratados) {
+			System.out.println("- Artista contratado: " + artista.getNombre());
+		}
+		System.out.println("Cantidad de artistas contratados: " + artistasContratados.size() + "\n");
+	}
+
 	@Override
 	public String toString() {
 		return "Recital{" + "fecha=" + fecha + ", canciones=" + listaCanciones.size()

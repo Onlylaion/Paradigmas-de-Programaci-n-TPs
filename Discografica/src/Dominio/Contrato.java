@@ -65,6 +65,7 @@ public class Contrato {
 							costoTotal += costoFinal;
 							artistasAsignados.add(artistaSeleccionado);
 							artistaSeleccionado.asignarACancion(this.cancion.getDuracion());
+							System.out.println("Artista " + artistaSeleccionado.getNombre() + " asignado al rol " + rol + " para la cancion " + cancion.getNombreCancion() + " con un costo de $" + String.format("%.2f", costoFinal));
 
 							if (!recital.getArtistasContratados().contains(artistaSeleccionado)) {
 								recital.agregarArtistaContrato(artistaSeleccionado);
@@ -78,7 +79,7 @@ public class Contrato {
 					}
 				} else {
 					System.out.println("No hay artista disponible para el rol: " + rol);
-					return false;
+					break;
 				}
 			}
 		}

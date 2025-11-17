@@ -65,10 +65,14 @@ public class ControllerContrato {
         }
     }
 
-    public double contratoTodasCanciones(Set<Cancion> canciones) throws Exception {
+    public double contratoTodasCanciones(Set<Cancion> canciones) {
         double costoFinal = 0.0;
-        for(Cancion c : canciones) {
-            costoFinal += this.contratarPorCancion(c);
+        for(Cancion c : canciones) {    
+            try {
+                costoFinal += this.contratarPorCancion(c);
+            } catch(Exception e) {
+                System.out.println("No se pudo concretar el contrato para todas las canciones: " + e.getMessage());
+            }
         }
         return costoFinal;
     }

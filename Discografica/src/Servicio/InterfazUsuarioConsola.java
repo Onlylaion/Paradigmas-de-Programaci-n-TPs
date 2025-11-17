@@ -238,12 +238,11 @@ public class InterfazUsuarioConsola {
 	public void verInformacionRecital() {
 		try {
 			System.out.println(this.controladorRecital.buscarXId(1));
+			this.controladorRecital.verEstadoRecital();
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
 
 	}
-	
-	
 
 }

@@ -86,4 +86,13 @@ public class ControllerRecital {
 		}
 	}
 
+	public void verEstadoRecital() throws Exception {
+		int id = 1;
+		Recital recital = recitalRepository.findById(id);
+		if (recital == null) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
+		} else {
+			recital.verEstadoRecital();
+		}
+	}
 }
