@@ -17,6 +17,7 @@ import Persistencia.ControllerArtista;
 import Persistencia.ControllerCancion;
 import Persistencia.ControllerRecital;
 import Persistencia.ControllerContrato;
+import ResourceJSON.ProcesadorJSON;
 
 public class LoteDePrueba {
     private ControllerArtista controllerArtista;
@@ -49,6 +50,26 @@ public class LoteDePrueba {
 	}
 
     public void cargarLoteDePrueba() {
+    	
+    	// CARGA DE DATOS DE ARCHIVOS JSON
+    	Set<Artista> artistas = ProcesadorJSON.cargarArtistas("src/ResourceJSON/artistas.json");
+    	Set<Artista> artistasBases = ProcesadorJSON.cargarArtistasBase("src/ResourseJSON/artistas-incluidos.json");
+    	Recital recitalp = ProcesadorJSON.cargarRecital("src/ResourseJSON/recital.json");
+    	
+    	//MOSTRAR DATOS
+    	//System.out.println(recitalp);
+    	//System.out.println("\nArtistas:\n");
+    	//for(Artista a: artistas)
+    	//{
+    	//	System.out.println(a);
+    	//}
+    	//System.out.println("\nArtistas Base:\n");
+    	//for(Artista a: artistasBases)
+    	//{
+    	//	System.out.println(a);
+    	//}
+    	
+    	
         Set<Artista> artistasBase = new HashSet<>();
 
 		List<Rol> rolesBrian = new ArrayList<>();

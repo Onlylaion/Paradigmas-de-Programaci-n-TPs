@@ -20,24 +20,6 @@ public class ConsultaProlog {
 		this.archivoPath = path;
 	}
 	
-//	private String rolToProlog(Rol rol) {
-//	    return rol.name().toLowerCase();  
-//	}
-	
-//	private String listaCancionesToProlog(Set<Cancion> canciones) {
-//		return "[" + canciones.stream()
-//		.map(c -> cancionToProlog(c))
-//		.collect(Collectors.joining(", "))
-//		+ "]";
-//	}
-	
-//	private String cancionToProlog(Cancion c) {		
-//		String roles = c.consultarRolesFaltantes().stream()
-//				.map(r -> String.format("(%s)", r.name().toLowerCase()))
-//				.collect(Collectors.joining(", "));
-//		return String.format("cancion('%s', [%s])", c.getNombreCancion(), roles);
-//	}
-	
 	private String artistaToProlog(Artista a) {
 
 	    String roles = a.getRolesHistoricos().stream()
