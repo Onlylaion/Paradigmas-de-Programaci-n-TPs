@@ -15,9 +15,13 @@ import Dominio.Recital;
 
 public class ControllerContrato {
     private ContratoRepository contratoRepository;
+    private Recital recital;
+	private List<Artista> artistasCandidatos;
 
-    public ControllerContrato() {
+    public ControllerContrato(Recital recital, List<Artista> artistasCandidatos) {
         this.contratoRepository = new ContratoRepository();
+        this.recital = recital;
+        this.artistasCandidatos = artistasCandidatos;
     }
 
     public void agregarContrato(Contrato contrato) {
@@ -28,29 +32,33 @@ public class ControllerContrato {
         contratoRepository.eliminarContrato(contrato);
     }
 
-    public List<Artista> obtenerArtistasCandidatos() throws Exception {
-        Contrato contrato = contratoRepository.findById(1);
-        if(contrato == null) {
-            throw new Exception("Contrato no encontrado.");
-        }
-        return contrato.getArtistasCandidatos();
-    }
+    // public List<Artista> obtenerArtistasCandidatos() throws Exception {
+    //     Contrato contrato = contratoRepository.findById(1);
+    //     if(contrato == null) {
+    //         throw new Exception("Contrato no encontrado.");
+    //     }
+    //     return contrato.getArtistasCandidatos();
+    // }
 
-    public Recital obtenerRecital() throws Exception {
-        Contrato contrato = contratoRepository.findById(1);
-        if(contrato == null) {
-            throw new Exception("Contrato no encontrado.");
-        }
-        return contrato.getRecital();
-    }
+    // public Recital obtenerRecital() throws Exception {
+    //     Contrato contrato = contratoRepository.findById(1);
+    //     if(contrato == null) {
+    //         throw new Exception("Contrato no encontrado.");
+    //     }
+    //     return contrato.getRecital();
+    // }
 
     public List<Contrato> obtenerContratos() {
         return contratoRepository.obtenerContratos();
     }
 
     public double contratarPorCancion(Cancion cancion) throws Exception {
-        Contrato nuevoContrato = new Contrato(obtenerRecital(), obtenerArtistasCandidatos());
-        if(nuevoContrato.contratoPorCancion(cancion)) {
+        /*for (Artista artista : artistasCandidatos) {
+            System.out.println("Artista candidato: " + artista);
+        }*/
+        Contrato nuevoContrato = new Contrato(recital, cancion);
+        if(nuevoContrato.contratoPorCancion(artistasCandidatos)) {
+            contratoRepository.agregarContrato(nuevoContrato);
             return nuevoContrato.getCostoTotal();
         } else {
             throw new Exception("No se pudo concretar el contrato para la cancion seleccionada.");
@@ -65,17 +73,15 @@ public class ControllerContrato {
         return costoFinal;
     }
 
-    public Map<Cancion, List<Artista>> obtenerArtistasContratadosPorCancion(Cancion cancion) throws Exception {
+    public List<Artista> obtenerArtistasContratadosPorCancion(Cancion cancion) throws Exception {
         List<Contrato> contratos = contratoRepository.obtenerContratos();
         if(contratos == null || contratos.isEmpty()) {
             throw new Exception("Contratos no realizados.");
         }
 
         for (Contrato contrato : contratos) {
-            for (Map.Entry<Cancion, List<Artista>> entry : contrato.getAsignacionesPorCancion().entrySet()) {
-                if (entry.getKey().getId() == cancion.getId()) {
-                    return Map.of(entry.getKey(), entry.getValue());
-                }
+            if (contrato.getCancion().getId() == cancion.getId()) {
+                return contrato.getArtistasAsignados();
             }
         }
         throw new Exception("No se encontraron artistas contratados para la cancion con ID: " + cancion.getId());
@@ -89,7 +95,7 @@ public class ControllerContrato {
 
         Map<Cancion, List<Artista>> asignacionesPorCancion = new HashMap<>();
         for (Contrato contrato : contratos) {
-            asignacionesPorCancion.putAll(contrato.getAsignacionesPorCancion());
+            asignacionesPorCancion.put(contrato.getCancion(), contrato.getArtistasAsignados());
         }
         return asignacionesPorCancion;
     }
