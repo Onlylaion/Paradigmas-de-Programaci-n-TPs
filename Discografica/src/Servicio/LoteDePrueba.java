@@ -1,7 +1,7 @@
 package Servicio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -141,7 +141,8 @@ public class LoteDePrueba {
         controllerCancion.agregarCancion(days);
 
 		// Crear recital
-		Recital recital = new Recital(canciones, artistasBase, new HashSet<>(), new Date());
+        LocalDate fecha = LocalDate.parse("2026-08-10");
+		Recital recital = new Recital(canciones, artistasBase, new HashSet<>(), fecha);
         controllerRecital.agregarRecital(recital);
 
         this.controllerContrato = new ControllerContrato(recital, artistasCandidatos);

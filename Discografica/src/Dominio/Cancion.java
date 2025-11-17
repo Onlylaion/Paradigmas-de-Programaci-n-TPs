@@ -6,14 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Cancion {
+public class Cancion implements Comparable<Cancion>{
 	private int idCancion;
 	private String nombreCancion;
 	private double duracion;
 	private HashMap<Rol, Integer> mapRoles; // Es entero por la cantidad de roles repetibles
 	private List<Artista> artistasAsignados;
 
-	//Constructor de Canción
 	public Cancion(String nombreCancion, double duracion, Map<Rol, Integer> rolesRequeridos) {
 		this.nombreCancion = nombreCancion;
 		this.duracion = duracion;
@@ -21,7 +20,6 @@ public class Cancion {
 		this.artistasAsignados = new ArrayList<>();
 	}
 
-	///Getters
 	public int getId() {
 		return this.idCancion;
 	}
@@ -96,7 +94,7 @@ public class Cancion {
 	/**
 	 * Desocupa un rol (quita la asignación de un artista)
 	 */
-	public void descuparRol(Artista artista) throws Exception {
+	public void desocuparRol(Artista artista) throws Exception {
 		if (!artistasAsignados.contains(artista)) {
 			throw new Exception("No puedo desocupar un artista que no existe");
 		}
@@ -121,9 +119,7 @@ public class Cancion {
 		artistasAsignados.remove(artista);
 
 		// Incrementar el rol disponible
-		if (rolOcupado != null && mapRoles.containsKey(rolOcupado)) {
-			mapRoles.put(rolOcupado, mapRoles.get(rolOcupado) + 1);
-		}
+		mapRoles.put(rolOcupado, mapRoles.get(rolOcupado) + 1);
 	}
 
 	/**
@@ -143,5 +139,15 @@ public class Cancion {
 	public String toString() {
 		return "Cancion{" + "nombre='" + nombreCancion + '\'' + ", duracion=" + duracion + ", artistas asignados="
 				+ artistasAsignados.size() + ", roles faltantes=" + consultarRolesFaltantes().size() + '}';
+	}
+
+	@Override
+	public int compareTo(Cancion o) {
+		if(this.nombreCancion.equals(o.nombreCancion))
+			return 0;
+		else if(this.nombreCancion.compareTo(o.nombreCancion) > 1)
+			return 1;
+
+		return -1;
 	}
 }

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Artista {
+public class Artista implements Comparable<Artista>{
 	private int id;
 	private String nombreArtista;
 	private List<Rol> RolesHistoricos; // Puedo querer agregarle Roles por si lo entrené
@@ -105,7 +105,7 @@ public class Artista {
 	// habilidad
 	public void agregarRol(Rol rol) throws Exception {
 		if (estaCalificadoParaLaCancion(rol)) {
-			throw new Exception("No se puede entrenar una habilidad a alguien que ya tiene una habilidad");
+			throw new Exception("No se puede entrenar una habilidad a alguien que ya la tiene");
 		} else {
 			rolesEntrenados.add(rol);
 			recargo += costoCancionBase * 0.5;
@@ -190,5 +190,15 @@ public class Artista {
 			cad += "\n  - Rol historico: " + rol;
 		}
 		return cad;
+	}
+
+	@Override
+	public int compareTo(Artista o) {
+		if(this.nombreArtista.equals(o.nombreArtista))
+			return 0;
+		else if(this.nombreArtista.compareTo(o.nombreArtista) > 1)
+			return 1;
+		
+		return -1;
 	}
 }

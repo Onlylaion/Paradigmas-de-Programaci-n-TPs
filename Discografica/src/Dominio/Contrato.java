@@ -106,7 +106,7 @@ public class Contrato {
 
 		if (this.artistasAsignados.contains(artista)) {
 			try {
-				cancion.descuparRol(artista);
+				cancion.desocuparRol(artista);
 				artista.desasignarDeCancion();
 				this.artistasAsignados.remove(artista);
 				encontrado = true;
@@ -138,7 +138,7 @@ public class Contrato {
 		if(artistasCandidatos.isEmpty()) {
 			return null;
 		}
-		// Luego en candidatos - elegir el más barato
+		// Luego en candidatos -> elegir el más barato
 		Artista mejorArtista = null;
 		double menorCosto = Double.MAX_VALUE;
 
@@ -160,16 +160,18 @@ public class Contrato {
 	private double calcularCostoConDescuentos(Artista artistaCandidato) {
 		double costo = artistaCandidato.getCosto();
 
-		for (Artista base : recital.getArtistasBase()) {
-			if (base.compartioBandaCon(artistaCandidato)) {
-				try {
-					artistaCandidato.aplicarDescuento();
-					costo = artistaCandidato.getCosto();
-				} catch (Exception e) {
-					// Ya tiene descuento
+		if(!artistaCandidato.isDescuento()) {
+			for (Artista base : recital.getArtistasBase()) {
+				if (base.compartioBandaCon(artistaCandidato)) {
+						try {
+							artistaCandidato.aplicarDescuento();
+							costo = artistaCandidato.getCosto();
+						} catch (Exception e) {
+							// Ya tiene descuento
+						}
+						break;
+					}
 				}
-				break;
-			}
 		}
 
 		return costo;

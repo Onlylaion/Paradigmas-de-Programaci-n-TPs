@@ -1,6 +1,6 @@
 package Dominio;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 public class Recital {
@@ -8,12 +8,12 @@ public class Recital {
 	private Set<Cancion> listaCanciones;
 	private Set<Artista> artistasBase;
 	private Set<Artista> artistasContratados;
-	private Date fecha;
+	private LocalDate fecha;
 
 	// ============ CONSTRUCTOR ============
 
 	public Recital(Set<Cancion> listaCanciones, Set<Artista> artistasBase, Set<Artista> artistasContratados,
-			Date fecha) {
+			LocalDate fecha) {
 		this.listaCanciones = listaCanciones;
 		this.artistasBase = artistasBase;
 		this.artistasContratados = artistasContratados;
@@ -37,7 +37,7 @@ public class Recital {
 		return this.artistasContratados;
 	}
 
-	public Date getFecha() {
+	public LocalDate getFecha() {
 		return this.fecha;
 	}
 
@@ -60,7 +60,7 @@ public class Recital {
 
 	// ============ MÉTODOS AUXILIARES ============
 
-	private Artista buscarArtistaPorNombre(String nombre) {
+	public Artista buscarArtistaPorNombre(String nombre) {
 		for (Artista artista : artistasBase) {
 			if (artista.getNombre().equalsIgnoreCase(nombre)) {
 				return artista;
@@ -104,8 +104,11 @@ public class Recital {
 	// ============ MÉTODOS DE CONSULTA ============
 
 	// Obtener roles faltantes para una canción específica
-	public java.util.Map<Rol, Integer> getRolesFaltantesCancion(Cancion cancion) {
-		return cancion.getMapRoles();
+	public java.util.Map<Rol, Integer> getRolesFaltantesCancion(Cancion cancion) throws Exception {
+		if(!listaCanciones.contains(cancion))
+			throw new Exception("La cancion " + cancion.getNombreCancion() + " no está en este recital");
+		else
+			return cancion.getMapRoles();
 	}
 
 	// Obtener roles faltantes para TODAS las canciones
