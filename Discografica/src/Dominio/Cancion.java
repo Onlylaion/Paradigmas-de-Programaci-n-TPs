@@ -104,6 +104,7 @@ public class Cancion implements Comparable<Cancion>{
 		for (Rol rol : artista.getRolesHistoricos()) {
 			if (mapRoles.containsKey(rol)) {
 				rolOcupado = rol;
+				break;
 			}
 		}
 
@@ -111,6 +112,7 @@ public class Cancion implements Comparable<Cancion>{
 			for (Rol rol : artista.getRolesEntrenados()) {
 				if (mapRoles.containsKey(rol)) {
 					rolOcupado = rol;
+					break;
 				}
 			}
 		}
