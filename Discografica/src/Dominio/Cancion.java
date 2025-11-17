@@ -13,6 +13,7 @@ public class Cancion {
 	private HashMap<Rol, Integer> mapRoles; // Es entero por la cantidad de roles repetibles
 	private List<Artista> artistasAsignados;
 
+	//Constructor de Canción
 	public Cancion(String nombreCancion, double duracion, Map<Rol, Integer> rolesRequeridos) {
 		this.nombreCancion = nombreCancion;
 		this.duracion = duracion;
@@ -20,6 +21,7 @@ public class Cancion {
 		this.artistasAsignados = new ArrayList<>();
 	}
 
+	///Getters
 	public int getId() {
 		return this.idCancion;
 	}

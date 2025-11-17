@@ -16,7 +16,12 @@ public class ControllerArtista {
         artistaRepository.agregarArtista(artista);
     }
 
-    public Artista findById(int id) {
-        return artistaRepository.findById(id);
+    public Artista findById(int id) throws Exception{
+    	Artista artist = artistaRepository.findById(id);
+    	if(artist == null) {
+    		throw new Exception("No existe tal artista");
+    	}else {
+    		return artist;
+    	}
     }
 }

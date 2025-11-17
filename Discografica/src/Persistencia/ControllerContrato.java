@@ -99,4 +99,11 @@ public class ControllerContrato {
         }
         return asignacionesPorCancion;
     }
+	
+    public void desasignarContrato(Artista artista) throws Exception {
+    	List<Contrato>contratos = this.contratoRepository.obtenerContratos();
+    	for (Contrato contrato : contratos) {
+			contrato.desasignarContrato(artista);
+		}
+    }
 }
