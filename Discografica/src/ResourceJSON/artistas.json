@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "nombreArtista": "Brian May",
+    "RolesHistoricos": ["Guitarrista", "Corista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 0,
+    "costoCancionDesc": 0,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 100,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 2,
+    "nombreArtista": "Roger Taylor",
+    "RolesHistoricos": ["Baterista", "Corista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 0,
+    "costoCancionDesc": 0,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 100,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 3,
+    "nombreArtista": "John Deacon",
+    "RolesHistoricos": ["Bajista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 0,
+    "costoCancionDesc": 0,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 100,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 4,
+    "nombreArtista": "George Michael",
+    "RolesHistoricos": ["VozPrincipal"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Wham!" },
+      { "nombreBanda": "George Michael" }
+    ],
+    "costoCancionBase": 1000,
+    "costoCancionDesc": 1000,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 3,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 5,
+    "nombreArtista": "Elton John",
+    "RolesHistoricos": ["VozPrincipal", "Tecladista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Elton John Band" }
+    ],
+    "costoCancionBase": 1200,
+    "costoCancionDesc": 1200,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 2,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 6,
+    "nombreArtista": "David Bowie",
+    "RolesHistoricos": ["VozPrincipal"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Tin Machine" },
+      { "nombreBanda": "David Bowie" }
+    ],
+    "costoCancionBase": 1500,
+    "costoCancionDesc": 1500,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 2,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 7,
+    "nombreArtista": "Annie Lennox",
+    "RolesHistoricos": ["VozPrincipal"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Eurythmics" }
+    ],
+    "costoCancionBase": 900,
+    "costoCancionDesc": 900,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 2,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  },
+  {
+    "id": 8,
+    "nombreArtista": "Lisa Stansfield",
+    "RolesHistoricos": ["VozPrincipal"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Lisa Stansfield" }
+    ],
+    "costoCancionBase": 800,
+    "costoCancionDesc": 800,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 2,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 0
+  }
+]
