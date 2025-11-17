@@ -34,4 +34,13 @@ public class ContratoRepository {
         }
         return null;
     }
+
+    public Contrato findByCancionId(long idCancion) {
+        for (Contrato contratoActual : contratos) {
+            if (contratoActual.getCancion().getId() == idCancion) {
+                return contratoActual;
+            }
+        }
+        return null;
+    }
 }

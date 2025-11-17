@@ -2,8 +2,10 @@ package Persistencia;
 
 import Repositorio.ArtistaRepository;
 
-import Dominio.Artista;
+import java.util.Set;
 
+import Dominio.Artista;
+import Dominio.Rol;
 
 public class ControllerArtista {
     private ArtistaRepository artistaRepository;
@@ -23,5 +25,17 @@ public class ControllerArtista {
     	}else {
     		return artist;
     	}
+    }
+
+    public Set<Artista> obtenerTodosArtistas() {
+        return artistaRepository.getArtistas();
+    }
+
+    public void entrenarArtista(String nombre, Rol rol) throws Exception {
+        Artista artista = artistaRepository.findByNombre(nombre);
+        if (artista == null) {
+            throw new Exception("Artista no encontrado: " + nombre);
+        }
+        artista.agregarRol(rol);
     }
 }

@@ -31,4 +31,12 @@ public class ArtistaRepository {
         return null;
     }
     
+    public Artista findByNombre(String nombre) {
+        for (Artista artista : artistas) {
+            if (artista.getNombre().equalsIgnoreCase(nombre)) {
+                return artista;
+            }
+        }
+        return null;
+    }
 }

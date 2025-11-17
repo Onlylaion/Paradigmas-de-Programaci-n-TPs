@@ -1,6 +1,5 @@
 package Servicio;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.Scanner;
@@ -24,9 +23,6 @@ public class InterfazUsuarioConsola {
 	private LoteDePrueba loteDePrueba = new LoteDePrueba();
 
 	public InterfazUsuarioConsola() {
-		// this.controladorArchivos = new ControllerArchivoInicial();
-		// this.controladorCancion = new ControllerCancion();
-		// this.controladorRecital = new ControllerRecital();
 		this.scanner = new Scanner(System.in);
 	}
 
@@ -131,6 +127,15 @@ public class InterfazUsuarioConsola {
 			double costoTotal = controladorContrato.contratarPorCancion(seleccionada);
 			System.out.println("\nContratacion exitosa!");
 			System.out.println("Costo total del contrato: $" + String.format("%.2f", costoTotal));
+
+			System.out.println("\nAsignaciones para la cancion: " + seleccionada.getNombreCancion());
+			System.out.println("--------------------------------");
+			Map<Artista, Rol> artistasAsignados = controladorContrato.obtenerArtistasYRolContratadosPorCancion(seleccionada);
+			for (Map.Entry<Artista, Rol> entry : artistasAsignados.entrySet()) {
+				Artista a = entry.getKey();
+				Rol rol = entry.getValue();
+				System.out.println(" - " + a.getNombre() + " (" + rol + ")");
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return;
@@ -154,9 +159,11 @@ public class InterfazUsuarioConsola {
 			for (Cancion c : canciones) {
 				System.out.println("\nAsignaciones para la cancion: " + c.getNombreCancion());
 				System.out.println("--------------------------------");
-				List<Artista> artistasAsignados = controladorContrato.obtenerArtistasContratadosPorCancion(c);
-				for (Artista a : artistasAsignados) {
-					System.out.println(" - " + a.getNombre());
+				Map<Artista, Rol> artistasAsignados = controladorContrato.obtenerArtistasYRolContratadosPorCancion(c);
+				for (Map.Entry<Artista, Rol> entry : artistasAsignados.entrySet()) {
+					Artista a = entry.getKey();
+					Rol rol = entry.getValue();
+					System.out.println(" - " + a.getNombre() + " (" + rol + ")");
 				}
 			}
 		} catch (Exception e) {
@@ -166,7 +173,14 @@ public class InterfazUsuarioConsola {
 	}
 
 	public void entrenarArtista() {
+		Set<Artista> artistas = controladorContrato.obtenerTodosArtistasNoContratados();
+		System.out.println("Artistas disponibles para entrenar:");
+		for (Artista artistaActual : artistas) {
+			System.out.println(artistaActual.getNombre());
+		}
+
 		System.out.print("Nombre del artista a entrenar: ");
+		scanner.nextLine(); // Limpiar buffer
 		String nombre = scanner.nextLine();
 
 		System.out.println("\nRoles disponibles:");
@@ -187,7 +201,7 @@ public class InterfazUsuarioConsola {
 		Rol rolSeleccionado = roles[seleccion - 1];
 
 		try {
-			this.controladorRecital.entrenarArtista(nombre, rolSeleccionado);
+			this.controladorArtista.entrenarArtista(nombre, rolSeleccionado);
 			System.out.println("\nArtista " + nombre + " entrenado en " + rolSeleccionado + "!");
 		} catch (Exception e) {
 			System.out.println("\nError: " + e.getMessage());

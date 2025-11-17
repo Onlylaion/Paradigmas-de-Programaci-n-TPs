@@ -1,20 +1,22 @@
 package Dominio;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Contrato {
 	private long idContrato;
 	private Recital recital;
 	private Cancion cancion;
-	List<Artista> artistasAsignados;
+	Map<Artista, Rol> artistasAsignados;
 	private double costoTotal;
 
 	// ============ CONSTRUCTOR ============
 	public Contrato(Recital recital, Cancion cancion) {
 		this.recital = recital;
 		this.cancion = cancion;
-		this.artistasAsignados = new ArrayList<>();
+		this.artistasAsignados = new HashMap<>();
 		this.costoTotal = 0;
 	}
 
@@ -36,7 +38,7 @@ public class Contrato {
 		return this.recital;
 	}
 
-	public List<Artista> getArtistasAsignados() {
+	public Map<Artista, Rol> getArtistasAsignados() {
 		return this.artistasAsignados;
 	}
 
@@ -60,10 +62,10 @@ public class Contrato {
 
 				if (artistaSeleccionado != null) {
 					try {
-						if (cancion.ocuparRol(artistaSeleccionado)) {
+						if (cancion.ocuparRol(artistaSeleccionado, rol)) {
 							double costoFinal = calcularCostoConDescuentos(artistaSeleccionado);
 							costoTotal += costoFinal;
-							artistasAsignados.add(artistaSeleccionado);
+							artistasAsignados.put(artistaSeleccionado, rol);
 							artistaSeleccionado.asignarACancion(this.cancion.getDuracion());
 							System.out.println("Artista " + artistaSeleccionado.getNombre() + " asignado al rol " + rol + " para la cancion " + cancion.getNombreCancion() + " con un costo de $" + String.format("%.2f", costoFinal));
 
@@ -105,9 +107,13 @@ public class Contrato {
 	public void desasignarContrato(Artista artista) throws Exception {
 		boolean encontrado = false;
 
-		if (this.artistasAsignados.contains(artista)) {
+		if (this.artistasAsignados.containsKey(artista)) {
 			try {
-				cancion.desocuparRol(artista);
+				Rol rol = this.artistasAsignados.getOrDefault(artista, null);
+				if(rol == null) {
+					throw new Exception("Rol no encontrado para el artista en este contrato");
+				}
+				cancion.desocuparRol(artista, rol);
 				artista.desasignarDeCancion();
 				this.artistasAsignados.remove(artista);
 				encontrado = true;
@@ -189,8 +195,10 @@ public class Contrato {
 		System.out.println("\n═══ ASIGNACIONES POR CANCIÓN ═══\n");
 
 		System.out.println("Canción: " + cancion.getNombreCancion());
-		for (Artista artista : artistasAsignados) {
-			System.out.println("  - " + artista.getNombre() + " | $" + String.format("%.2f", artista.getCosto()));
+		for (Map.Entry<Artista, Rol> entry : artistasAsignados.entrySet()) {
+			Artista artista = entry.getKey();
+			Rol rol = entry.getValue();
+			System.out.println("  - " + artista.getNombre() + " (" + rol + ") | $" + String.format("%.2f", artista.getCosto()));
 		}
 		System.out.println();
 

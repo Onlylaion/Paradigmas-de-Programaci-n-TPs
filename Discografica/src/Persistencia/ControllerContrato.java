@@ -3,15 +3,18 @@ package Persistencia;
 import Repositorio.ContratoRepository;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 import Dominio.Contrato;
 import Dominio.Cancion;
 import Dominio.Artista;
 import Dominio.Recital;
+import Dominio.Rol;
 
 public class ControllerContrato {
     private ContratoRepository contratoRepository;
@@ -53,16 +56,25 @@ public class ControllerContrato {
     }
 
     public double contratarPorCancion(Cancion cancion) throws Exception {
-        /*for (Artista artista : artistasCandidatos) {
-            System.out.println("Artista candidato: " + artista);
-        }*/
-        Contrato nuevoContrato = new Contrato(recital, cancion);
-        if(nuevoContrato.contratoPorCancion(artistasCandidatos)) {
-            contratoRepository.agregarContrato(nuevoContrato);
-            return nuevoContrato.getCostoTotal();
-        } else {
-            throw new Exception("No se pudo concretar el contrato para la cancion seleccionada.");
+        Contrato nuevoContrato = contratoRepository.findByCancionId(cancion.getId());
+        if(nuevoContrato == null) {
+            nuevoContrato = new Contrato(recital, cancion);
+            if(nuevoContrato.contratoPorCancion(artistasCandidatos)) {
+                contratoRepository.agregarContrato(nuevoContrato);
+                return nuevoContrato.getCostoTotal();
+            } else {
+                throw new Exception("No se pudo concretar el contrato para la cancion seleccionada.");
+            }
+        } else if(!cancion.puestosCubiertos()){
+            if(nuevoContrato.contratoPorCancion(artistasCandidatos)) {
+                return nuevoContrato.getCostoTotal();
+            } else {
+                throw new Exception("No se pudo concretar el contrato para la cancion seleccionada.");
+            }
+        }else {
+            throw new Exception("Ya existe un contrato para la cancion seleccionada.");
         }
+        
     }
 
     public double contratoTodasCanciones(Set<Cancion> canciones) {
@@ -85,6 +97,21 @@ public class ControllerContrato {
 
         for (Contrato contrato : contratos) {
             if (contrato.getCancion().getId() == cancion.getId()) {
+                List<Artista> artistasAsignados = new ArrayList<>(contrato.getArtistasAsignados().keySet());
+                return artistasAsignados;
+            }
+        }
+        throw new Exception("No se encontraron artistas contratados para la cancion con ID: " + cancion.getId());
+    }
+    
+    public Map<Artista, Rol> obtenerArtistasYRolContratadosPorCancion(Cancion cancion) throws Exception {
+        List<Contrato> contratos = contratoRepository.obtenerContratos();
+        if(contratos == null || contratos.isEmpty()) {
+            throw new Exception("Contratos no realizados.");
+        }
+
+        for (Contrato contrato : contratos) {
+            if (contrato.getCancion().getId() == cancion.getId()) {
                 return contrato.getArtistasAsignados();
             }
         }
@@ -99,11 +126,17 @@ public class ControllerContrato {
 
         Map<Cancion, List<Artista>> asignacionesPorCancion = new HashMap<>();
         for (Contrato contrato : contratos) {
-            asignacionesPorCancion.put(contrato.getCancion(), contrato.getArtistasAsignados());
+            List<Artista> artistasAsignados = new ArrayList<>(contrato.getArtistasAsignados().keySet());
+            asignacionesPorCancion.put(contrato.getCancion(), artistasAsignados);
         }
         return asignacionesPorCancion;
     }
 	
+    public Set<Artista> obtenerTodosArtistasNoContratados() {
+    	Set<Artista> artistasNoContratados = new HashSet<>(artistasCandidatos);
+        artistasNoContratados.removeAll(recital.getArtistasContratados());
+        return artistasNoContratados;
+    }
     public void desasignarContrato(Artista artista) throws Exception {
     	List<Contrato>contratos = this.contratoRepository.obtenerContratos();
     	for (Contrato contrato : contratos) {

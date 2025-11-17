@@ -61,14 +61,14 @@ public class Cancion implements Comparable<Cancion>{
 	 * Busca un rol compatible entre los que tiene el artista y los que necesita la canción
 	 * @return true si se asignó exitosamente, false si no fue posible
 	 */
-	public boolean ocuparRol(Artista otro) throws Exception {
+	public boolean ocuparRol(Artista otro, Rol rol) throws Exception {
 		if (this.artistasAsignados.contains(otro)) {
 			throw new Exception("El artista ya está asignado en un rol para la canción");
 		}
 
 		// Buscar en roles históricos
 		for (Rol rolArtista : otro.getRolesHistoricos()) {
-			if (mapRoles.containsKey(rolArtista) && mapRoles.get(rolArtista) > 0) {
+			if (rolArtista.equals(rol) && mapRoles.containsKey(rolArtista) && mapRoles.get(rolArtista) > 0) {
 				// Le bajo 1 a la cantidad de artista de ese rol
 				mapRoles.put(rolArtista, mapRoles.get(rolArtista) - 1);
 				// Agregamos al artista nuevo
@@ -94,34 +94,12 @@ public class Cancion implements Comparable<Cancion>{
 	/**
 	 * Desocupa un rol (quita la asignación de un artista)
 	 */
-	public void desocuparRol(Artista artista) throws Exception {
-		if (!artistasAsignados.contains(artista)) {
-			throw new Exception("No puedo desocupar un artista que no existe");
-		}
-
-		// Encontrar un rol que ocupaba
-		Rol rolOcupado = null;
-		for (Rol rol : artista.getRolesHistoricos()) {
-			if (mapRoles.containsKey(rol)) {
-				rolOcupado = rol;
-				break;
-			}
-		}
-
-		if (rolOcupado == null) {
-			for (Rol rol : artista.getRolesEntrenados()) {
-				if (mapRoles.containsKey(rol)) {
-					rolOcupado = rol;
-					break;
-				}
-			}
-		}
-
+	public void desocuparRol(Artista artista, Rol rol) throws Exception {
 		// Remover artista
 		artistasAsignados.remove(artista);
 
 		// Incrementar el rol disponible
-		mapRoles.put(rolOcupado, mapRoles.get(rolOcupado) + 1);
+		mapRoles.put(rol, mapRoles.get(rol) + 1);
 	}
 
 	/**

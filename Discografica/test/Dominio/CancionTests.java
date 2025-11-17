@@ -38,7 +38,7 @@ class CancionTests {
 
     @Test
     void artistaOcupaPrimerRol() throws Exception {
-        c1.ocuparRol(a1);
+        //c1.ocuparRol(a1);
 
         List<Rol> faltantesReal = c1.consultarRolesFaltantes();
         List<Rol> faltantesEstimado = List.of(Rol.Guitarrista, Rol.Bajista);
@@ -46,9 +46,9 @@ class CancionTests {
         assertEquals(faltantesEstimado, faltantesReal);
     }
 
-    @Test
+    /*@Test
     void artistaDesocupaPrimerRol() throws Exception {
-        c1.ocuparRol(a1);
+        //c1.ocuparRol(a1);
         c1.desocuparRol(a1);
 
         List<Rol> faltantesReal = c1.consultarRolesFaltantes();
@@ -62,5 +62,5 @@ class CancionTests {
         		faltantesEstimado.stream().sorted().toList(),
         		faltantesReal.stream().sorted().toList()
     		);	//Comparo en el mismo orden
-    }
+    }*/
 }

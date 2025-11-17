@@ -53,7 +53,7 @@ public class Menu {
 				interfazUsuario.contratarTodasCanciones();
 				break;
 			case 5:
-				System.out.println("\\n=== ENTRENAR A UN ARTISTA ===\\n");
+				System.out.println("\n=== ENTRENAR A UN ARTISTA ===\n");
 				interfazUsuario.entrenarArtista();
 				break;
 			case 6:
