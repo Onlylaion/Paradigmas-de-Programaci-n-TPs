@@ -28,7 +28,8 @@ public class ProcesadorJSON {
 					.registerTypeAdapter(LocalDate.class,(JsonDeserializer<LocalDate>) (json, type, context) ->LocalDate.parse(json.getAsString()))
 					.registerTypeAdapter(LocalDate.class,(JsonSerializer<LocalDate>) (date, type, context) -> new JsonPrimitive(date.toString()))
 					.create();
-			FileReader reader = new FileReader(path);
+            String absPath = absolutePath(path);
+			FileReader reader = new FileReader(absPath);
 			
 			Recital recital = gson.fromJson(reader, Recital.class);
 			
@@ -43,7 +44,8 @@ public class ProcesadorJSON {
     public static Set<Artista> cargarArtistas(String path) {
         try {
             Gson gson = new Gson();
-            FileReader reader = new FileReader(path);
+            String absPath = absolutePath(path);
+            FileReader reader = new FileReader(absPath);
 
             Type tipo = new TypeToken<List<Artista>>() {}.getType();
 
@@ -62,7 +64,8 @@ public class ProcesadorJSON {
     public static Set<Artista> cargarArtistasBase(String path) {
         try {
             Gson gson = new GsonBuilder().create();
-            FileReader reader = new FileReader(path);
+            String absPath = absolutePath(path);
+            FileReader reader = new FileReader(absPath);
 
             Type tipo = new TypeToken<List<Artista>>(){}.getType();
 
@@ -74,6 +77,11 @@ public class ProcesadorJSON {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private static String absolutePath(String relativePath) {
+        String base = System.getProperty("user.dir");
+        return base + "/" + relativePath;
     }
 
 }

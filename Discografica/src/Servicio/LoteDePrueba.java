@@ -53,8 +53,8 @@ public class LoteDePrueba {
     	
     	// CARGA DE DATOS DE ARCHIVOS JSON
     	Set<Artista> artistas = ProcesadorJSON.cargarArtistas("src/ResourceJSON/artistas.json");
-    	Set<Artista> artistasBases = ProcesadorJSON.cargarArtistasBase("src/ResourseJSON/artistas-incluidos.json");
-    	Recital recitalp = ProcesadorJSON.cargarRecital("src/ResourseJSON/recital.json");
+    	Set<Artista> artistasBases = ProcesadorJSON.cargarArtistasBase("src/ResourceJSON/artistas-incluidos.json");
+    	Recital recitalp = ProcesadorJSON.cargarRecital("src/ResourceJSON/recital.json");
     	
     	//MOSTRAR DATOS
     	//System.out.println(recitalp);

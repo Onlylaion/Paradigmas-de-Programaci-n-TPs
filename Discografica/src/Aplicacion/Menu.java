@@ -1,11 +1,9 @@
 package Aplicacion;
 import Servicio.InterfazUsuarioConsola;
-import java.util.List;
 
 
 public class Menu {
 	private InterfazUsuarioConsola interfazUsuario;
-	//private List<Artista> artistasCandidatos;
 
 	public Menu() {
 		this.interfazUsuario = new InterfazUsuarioConsola();
@@ -81,19 +79,6 @@ public class Menu {
 			}
 		}
 	}
-
-	/*private void contratarTodasCanciones() {
-
-		double costo = contrato.contratoTodasCanciones();
-
-		System.out.println("Contratacion finalizada!");
-		System.out.println("Costo total: $" + String.format("%.2f", costo));
-
-		contrato.listarAsignaciones();
-	}*/
-
-	
-
 
 	public static void main(String[] args) {
 		Menu menu = new Menu();
