@@ -5,7 +5,7 @@
     {
       "idCancion": 1,
       "nombreCancion": "Somebody to Love",
-      "duracion": 0,
+      "duracion": 4.95,
       "mapRoles": {
         "VozPrincipal": 1,
         "Guitarrista": 1,
@@ -29,13 +29,13 @@
             }
           ],
           "costoCancionBase": 1000,
-          "costoCancionDesc": 1000,
-          "cancionesAsignadas": 0,
+          "costoCancionDesc": 950,
+          "cancionesAsignadas": 1,
           "maxCanciones": 3,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "descuento": true,
+          "recargo": 50,
+          "rolesEntrenados": ["VozPrincipal"],
+          "disponibilidadHoraria": 2
         },
         {
           "id": 1,
@@ -49,14 +49,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 800,
+          "costoCancionDesc": 800,
+          "cancionesAsignadas": 2,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Guitarrista", "Corista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 3,
@@ -69,14 +69,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 700,
+          "costoCancionDesc": 700,
+          "cancionesAsignadas": 2,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Bajista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 2,
@@ -90,21 +90,21 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 750,
+          "costoCancionDesc": 750,
+          "cancionesAsignadas": 2,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Baterista", "Corista"],
+          "disponibilidadHoraria": 8
         }
       ]
     },
     {
       "idCancion": 2,
       "nombreCancion": "We Will Rock You",
-      "duracion": 0,
+      "duracion": 3.08,
       "mapRoles": {
         "VozPrincipal": 1,
         "Guitarrista": 1,
@@ -127,13 +127,13 @@
             }
           ],
           "costoCancionBase": 1500,
-          "costoCancionDesc": 1500,
-          "cancionesAsignadas": 0,
+          "costoCancionDesc": 1425,
+          "cancionesAsignadas": 1,
           "maxCanciones": 2,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "descuento": true,
+          "recargo": 75,
+          "rolesEntrenados": ["VozPrincipal"],
+          "disponibilidadHoraria": 4
         },
         {
           "id": 1,
@@ -147,14 +147,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 800,
+          "costoCancionDesc": 800,
+          "cancionesAsignadas": 2,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Guitarrista", "Corista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 3,
@@ -167,14 +167,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 700,
+          "costoCancionDesc": 700,
+          "cancionesAsignadas": 2,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Bajista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 2,
@@ -188,21 +188,21 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 750,
+          "costoCancionDesc": 750,
+          "cancionesAsignadas": 2,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Baterista", "Corista"],
+          "disponibilidadHoraria": 8
         }
       ]
     },
     {
       "idCancion": 3,
       "nombreCancion": "These Are the Days of Our Lives",
-      "duracion": 0,
+      "duracion": 3.9,
       "mapRoles": {
         "VozPrincipal": 1,
         "Guitarrista": 1,
@@ -222,13 +222,13 @@
             }
           ],
           "costoCancionBase": 900,
-          "costoCancionDesc": 900,
-          "cancionesAsignadas": 0,
+          "costoCancionDesc": 810,
+          "cancionesAsignadas": 1,
           "maxCanciones": 2,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "descuento": true,
+          "recargo": 90,
+          "rolesEntrenados": ["VozPrincipal"],
+          "disponibilidadHoraria": 3
         },
         {
           "id": 1,
@@ -242,14 +242,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 800,
+          "costoCancionDesc": 800,
+          "cancionesAsignadas": 3,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Guitarrista", "Corista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 3,
@@ -262,14 +262,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 700,
+          "costoCancionDesc": 700,
+          "cancionesAsignadas": 3,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Bajista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 2,
@@ -283,21 +283,21 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 750,
+          "costoCancionDesc": 750,
+          "cancionesAsignadas": 3,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Baterista", "Corista"],
+          "disponibilidadHoraria": 8
         }
       ]
     },
     {
       "idCancion": 4,
       "nombreCancion": "Under Pressure",
-      "duracion": 0,
+      "duracion": 4.33,
       "mapRoles": {
         "VozPrincipal": 2,
         "Guitarrista": 1,
@@ -317,14 +317,14 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 800,
+          "costoCancionDesc": 800,
+          "cancionesAsignadas": 4,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Guitarrista", "Corista"],
+          "disponibilidadHoraria": 8
         },
         {
           "id": 3,
@@ -337,35 +337,37 @@
               "nombreBanda": "Queen"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
+          "costoCancionBase": 700,
+          "costoCancionDesc": 700,
+          "cancionesAsignadas": 4,
           "maxCanciones": 100,
           "descuento": false,
           "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "rolesEntrenados": ["Bajista"],
+          "disponibilidadHoraria": 8
         },
         {
-          "id": 2,
-          "nombreArtista": "Roger Taylor",
+          "id": 6,
+          "nombreArtista": "David Bowie",
           "RolesHistoricos": [
-            "Baterista",
-            "Corista"
+            "VozPrincipal"
           ],
           "bandasHistoricas": [
             {
-              "nombreBanda": "Queen"
+              "nombreBanda": "Tin Machine"
+            },
+            {
+              "nombreBanda": "David Bowie"
             }
           ],
-          "costoCancionBase": 0,
-          "costoCancionDesc": 0,
-          "cancionesAsignadas": 0,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": [],
-          "disponibilidadHoraria": 0
+          "costoCancionBase": 1500,
+          "costoCancionDesc": 1425,
+          "cancionesAsignadas": 1,
+          "maxCanciones": 2,
+          "descuento": true,
+          "recargo": 75,
+          "rolesEntrenados": ["VozPrincipal"],
+          "disponibilidadHoraria": 4
         }
       ]
     }
@@ -383,14 +385,14 @@
           "nombreBanda": "Queen"
         }
       ],
-      "costoCancionBase": 0,
-      "costoCancionDesc": 0,
-      "cancionesAsignadas": 0,
+      "costoCancionBase": 800,
+      "costoCancionDesc": 800,
+      "cancionesAsignadas": 4,
       "maxCanciones": 100,
       "descuento": false,
       "recargo": 0,
-      "rolesEntrenados": [],
-      "disponibilidadHoraria": 0
+      "rolesEntrenados": ["Guitarrista", "Corista"],
+      "disponibilidadHoraria": 8
     },
     {
       "id": 2,
@@ -404,14 +406,14 @@
           "nombreBanda": "Queen"
         }
       ],
-      "costoCancionBase": 0,
-      "costoCancionDesc": 0,
-      "cancionesAsignadas": 0,
+      "costoCancionBase": 750,
+      "costoCancionDesc": 750,
+      "cancionesAsignadas": 4,
       "maxCanciones": 100,
       "descuento": false,
       "recargo": 0,
-      "rolesEntrenados": [],
-      "disponibilidadHoraria": 0
+      "rolesEntrenados": ["Baterista", "Corista"],
+      "disponibilidadHoraria": 8
     },
     {
       "id": 3,
@@ -424,14 +426,14 @@
           "nombreBanda": "Queen"
         }
       ],
-      "costoCancionBase": 0,
-      "costoCancionDesc": 0,
-      "cancionesAsignadas": 0,
+      "costoCancionBase": 700,
+      "costoCancionDesc": 700,
+      "cancionesAsignadas": 4,
       "maxCanciones": 100,
       "descuento": false,
       "recargo": 0,
-      "rolesEntrenados": [],
-      "disponibilidadHoraria": 0
+      "rolesEntrenados": ["Bajista"],
+      "disponibilidadHoraria": 8
     }
   ],
   "artistasContratados": [
@@ -450,13 +452,13 @@
         }
       ],
       "costoCancionBase": 1000,
-      "costoCancionDesc": 1000,
-      "cancionesAsignadas": 0,
+      "costoCancionDesc": 950,
+      "cancionesAsignadas": 1,
       "maxCanciones": 3,
-      "descuento": false,
-      "recargo": 0,
-      "rolesEntrenados": [],
-      "disponibilidadHoraria": 0
+      "descuento": true,
+      "recargo": 50,
+      "rolesEntrenados": ["VozPrincipal"],
+      "disponibilidadHoraria": 2
     },
     {
       "id": 6,
@@ -473,13 +475,13 @@
         }
       ],
       "costoCancionBase": 1500,
-      "costoCancionDesc": 1500,
-      "cancionesAsignadas": 0,
+      "costoCancionDesc": 1425,
+      "cancionesAsignadas": 1,
       "maxCanciones": 2,
-      "descuento": false,
-      "recargo": 0,
-      "rolesEntrenados": [],
-      "disponibilidadHoraria": 0
+      "descuento": true,
+      "recargo": 75,
+      "rolesEntrenados": ["VozPrincipal"],
+      "disponibilidadHoraria": 4
     },
     {
       "id": 7,
@@ -493,13 +495,13 @@
         }
       ],
       "costoCancionBase": 900,
-      "costoCancionDesc": 900,
-      "cancionesAsignadas": 0,
+      "costoCancionDesc": 810,
+      "cancionesAsignadas": 1,
       "maxCanciones": 2,
-      "descuento": false,
-      "recargo": 0,
-      "rolesEntrenados": [],
-      "disponibilidadHoraria": 0
+      "descuento": true,
+      "recargo": 90,
+      "rolesEntrenados": ["VozPrincipal"],
+      "disponibilidadHoraria": 3
     }
   ]
 }
