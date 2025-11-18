@@ -4,21 +4,26 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Scanner;
 
+//import Persistencia.ControllerArchivoInicial;
 import Persistencia.ControllerArtista;
 import Persistencia.ControllerCancion;
 import Persistencia.ControllerRecital;
 import Persistencia.ControllerContrato;
 import Dominio.Artista;
 import Dominio.Cancion;
+import Dominio.Recital;
 import Dominio.Rol;
+import ResourceProlog.ConsultaProlog;
 
 public class InterfazUsuarioConsola {
+	// private ControllerArchivoInicial controladorArchivos;
 	private ControllerCancion controladorCancion;
 	private ControllerContrato controladorContrato;
 	private ControllerRecital controladorRecital;
 	private ControllerArtista controladorArtista;
 	private Scanner scanner;
 	private LoteDePrueba loteDePrueba = new LoteDePrueba();
+	private ConsultaProlog PrologQuery = new ConsultaProlog("src/ResourceProlog/Entrenamiento.pl");
 
 	public InterfazUsuarioConsola() {
 		this.scanner = new Scanner(System.in);
@@ -216,7 +221,7 @@ public class InterfazUsuarioConsola {
 
 	public void listarCancionesConEstado() {
 		try {
-			this.controladorContrato.listarContratoYCancionesConEstado();
+			this.controladorRecital.listarCancionesConEstado();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -255,6 +260,20 @@ public class InterfazUsuarioConsola {
 			System.out.println(e.getMessage());
 		}
 
+	}
+	
+	public void realizarConsultaMinimosProlog()
+	{
+		try {
+			for(Recital r: controladorRecital.getRecitales() )
+			{
+				PrologQuery.ConsultarEntrenamientosMinimos(r);
+			}
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+			
 	}
 
 }
