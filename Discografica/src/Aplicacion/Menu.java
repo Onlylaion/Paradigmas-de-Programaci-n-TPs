@@ -31,7 +31,8 @@ public class Menu {
 			System.out.println("7. Listar canciones con estado");
 			System.out.println("8. Desasignar artista");
 			System.out.println("9. Ver informacion del recital");
-			System.out.println("10. Salir\n");
+			System.out.println("10. [PROLOG]");
+			System.out.println("11. Salir\n");
 
 			int opcion = interfazUsuario.obtenerComando();
 
@@ -71,6 +72,10 @@ public class Menu {
 				interfazUsuario.verInformacionRecital();
 				break;
 			case 10:
+				System.out.println("\n[PROLOG]\n");
+				interfazUsuario.realizarConsultaMinimosProlog();
+				break;
+			case 11:
 				System.out.println("\nSaliendo del sistema. Hasta luego!");
 				salir = true;
 				break;
