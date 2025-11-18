@@ -3,6 +3,7 @@ package Dominio;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Objects;
 
 public class Artista implements Comparable<Artista>{
 	private int id;
@@ -154,13 +155,6 @@ public class Artista implements Comparable<Artista>{
 		}
 		this.descuento = true;
 	}
-	
-	public void quitarDescuento() throws Exception {
-		if (this.descuento == false) {
-			throw new Exception("El artista no tiene descuento aplicado");
-		}
-		this.descuento = false;
-	}
 
 	/**
 	 * Asigna a una canción más
@@ -207,5 +201,18 @@ public class Artista implements Comparable<Artista>{
 			return 1;
 		
 		return -1;
+	}
+	@Override
+	public boolean equals(Object o) {
+	    if (this == o) return true;
+	    if (o == null || getClass() != o.getClass()) return false;
+
+	    Artista artista = (Artista) o;
+	    return id == artista.id;
+	}
+
+	@Override
+	public int hashCode() {
+	    return Objects.hash(id);
 	}
 }
