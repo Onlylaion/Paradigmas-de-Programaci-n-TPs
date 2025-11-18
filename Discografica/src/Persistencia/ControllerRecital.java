@@ -58,16 +58,6 @@ public class ControllerRecital {
 		}
 	}
 
-	public void listarCancionesConEstado() throws Exception {
-		int id = 1;
-		Recital recital = recitalRepository.findById(id);
-		if (recital == null) {
-			throw new Exception("El recital no ha sido encontrado en el repositorio");
-		} else {
-			recital.listarCancionesConEstado();
-		}
-	}
-
 	public Set<Artista> getArtistasContratados() throws Exception {
 		int id = 1;
 		Recital recital = recitalRepository.findById(id);

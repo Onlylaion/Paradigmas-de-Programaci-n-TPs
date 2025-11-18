@@ -13,7 +13,7 @@
     "descuento": false,
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 0
+    "disponibilidadHoraria": 260
   },
   {
     "id": 2,
@@ -29,7 +29,7 @@
     "descuento": false,
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 0
+    "disponibilidadHoraria": 300
   },
   {
     "id": 3,
@@ -45,6 +45,6 @@
     "descuento": false,
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 0
+    "disponibilidadHoraria": 400
   }
 ]

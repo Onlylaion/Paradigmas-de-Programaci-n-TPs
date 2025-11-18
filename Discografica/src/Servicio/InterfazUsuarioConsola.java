@@ -16,7 +16,6 @@ import Dominio.Rol;
 import ResourceProlog.ConsultaProlog;
 
 public class InterfazUsuarioConsola {
-	// private ControllerArchivoInicial controladorArchivos;
 	private ControllerCancion controladorCancion;
 	private ControllerContrato controladorContrato;
 	private ControllerRecital controladorRecital;
@@ -221,7 +220,7 @@ public class InterfazUsuarioConsola {
 
 	public void listarCancionesConEstado() {
 		try {
-			this.controladorRecital.listarCancionesConEstado();
+			this.controladorContrato.listarContratoYCancionesConEstado();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -1,19 +1,11 @@
 package Servicio;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import Dominio.Artista;
-import Dominio.Banda;
 import Dominio.Cancion;
 import Dominio.Recital;
-import Dominio.Contrato;
-import Dominio.Rol;
 import Persistencia.ControllerArtista;
 import Persistencia.ControllerCancion;
 import Persistencia.ControllerRecital;
@@ -61,41 +53,20 @@ public class LoteDePrueba {
 		System.out.println(recitalp);
 		System.out.println("\nArtistas:\n");
 		for (Artista a : artistas) {
-			controllerArtista.agregarArtista(a);
+			this.controllerArtista.agregarArtista(a);
 			System.out.println(a);
 		}
-		controllerRecital.agregarRecital(recitalp);
+		recitalp.setArtistasBase(artistasBases);
+		this.controllerRecital.agregarRecital(recitalp);
+
 		Set<Artista> artistasCandidatos = new HashSet<>(artistas);
 		artistasCandidatos.removeAll(artistasBases);
 		this.controllerContrato = new ControllerContrato(recitalp, artistasCandidatos);
 		
-		
-		System.out.println("\n");
+		System.out.println("\nCanciones:\n");
 		for (Cancion c : recitalp.getListaCanciones()) {
-			controllerCancion.agregarCancion(c);
-			if (!c.puestosCubiertos()) {
-				try {
-					this.controllerContrato.contratarPorCancion(c);
-				} catch (Exception e) {
-					System.out.println(e.getMessage());
-				}
-
-				System.out.println(c);
-				System.out.println("\n");
-			}
-			else
-			{
-				try {
-					Set<Artista> artistasAContratar = new HashSet<>(c.getListArtAsignados());
-					controllerContrato.contratarEstosArtistasParaCancion(artistasAContratar, c);
-				}
-				catch(Exception e)
-				{
-					System.out.println(e.getMessage());
-				}
-				System.out.println("\n");
-			}
+			System.out.println(c);
+			this.controllerCancion.agregarCancion(c);
 		}
-		
 	}
 }

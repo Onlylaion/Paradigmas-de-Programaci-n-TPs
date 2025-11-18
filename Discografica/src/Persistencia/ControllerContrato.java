@@ -128,6 +128,12 @@ public class ControllerContrato {
 			contrato.desasignarContrato(artista);
 		}
     }
+
+    public void listarContratoYCancionesConEstado() {
+    	List<Contrato> contratos = this.contratoRepository.obtenerContratos();
+    	recital.listarCancionesConEstado(contratos);
+    }
+
     public double contratarEstosArtistasParaCancion(Set<Artista> artistasAContratar, Cancion cancion) throws Exception
     {
     	Contrato nuevoContrato = new Contrato(recital,cancion);

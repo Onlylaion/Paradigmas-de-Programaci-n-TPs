@@ -7,98 +7,14 @@
       "nombreCancion": "Somebody to Love",
       "duracion": 4.95,
       "mapRoles": {
-        "VozPrincipal": 0,
-        "Guitarrista": 0,
-        "Bajista": 0,
-        "Baterista": 0,
+        "VozPrincipal": 1,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1,
         "Tecladista": 1
       },
       "artistasAsignados": [
-        {
-          "id": 4,
-          "nombreArtista": "George Michael",
-          "RolesHistoricos": [
-            "VozPrincipal"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Wham!"
-            },
-            {
-              "nombreBanda": "George Michael"
-            }
-          ],
-          "costoCancionBase": 1000,
-          "costoCancionDesc": 950,
-          "cancionesAsignadas": 1,
-          "maxCanciones": 3,
-          "descuento": true,
-          "recargo": 50,
-          "rolesEntrenados": ["VozPrincipal"],
-          "disponibilidadHoraria": 2
-        },
-        {
-          "id": 1,
-          "nombreArtista": "Brian May",
-          "RolesHistoricos": [
-            "Guitarrista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 800,
-          "costoCancionDesc": 800,
-          "cancionesAsignadas": 2,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Guitarrista", "Corista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 3,
-          "nombreArtista": "John Deacon",
-          "RolesHistoricos": [
-            "Bajista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 700,
-          "costoCancionDesc": 700,
-          "cancionesAsignadas": 2,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Bajista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 2,
-          "nombreArtista": "Roger Taylor",
-          "RolesHistoricos": [
-            "Baterista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 750,
-          "costoCancionDesc": 750,
-          "cancionesAsignadas": 2,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Baterista", "Corista"],
-          "disponibilidadHoraria": 8
-        }
+        
       ]
     },
     {
@@ -106,97 +22,13 @@
       "nombreCancion": "We Will Rock You",
       "duracion": 3.08,
       "mapRoles": {
-        "VozPrincipal": 0,
-        "Guitarrista": 0,
-        "Bajista": 0,
-        "Baterista": 0
+        "VozPrincipal": 2,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1
       },
       "artistasAsignados": [
-        {
-          "id": 6,
-          "nombreArtista": "David Bowie",
-          "RolesHistoricos": [
-            "VozPrincipal"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Tin Machine"
-            },
-            {
-              "nombreBanda": "David Bowie"
-            }
-          ],
-          "costoCancionBase": 1500,
-          "costoCancionDesc": 1425,
-          "cancionesAsignadas": 1,
-          "maxCanciones": 2,
-          "descuento": true,
-          "recargo": 75,
-          "rolesEntrenados": ["VozPrincipal"],
-          "disponibilidadHoraria": 4
-        },
-        {
-          "id": 1,
-          "nombreArtista": "Brian May",
-          "RolesHistoricos": [
-            "Guitarrista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 800,
-          "costoCancionDesc": 800,
-          "cancionesAsignadas": 2,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Guitarrista", "Corista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 3,
-          "nombreArtista": "John Deacon",
-          "RolesHistoricos": [
-            "Bajista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 700,
-          "costoCancionDesc": 700,
-          "cancionesAsignadas": 2,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Bajista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 2,
-          "nombreArtista": "Roger Taylor",
-          "RolesHistoricos": [
-            "Baterista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 750,
-          "costoCancionDesc": 750,
-          "cancionesAsignadas": 2,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Baterista", "Corista"],
-          "disponibilidadHoraria": 8
-        }
+        
       ]
     },
     {
@@ -204,94 +36,13 @@
       "nombreCancion": "These Are the Days of Our Lives",
       "duracion": 3.9,
       "mapRoles": {
-        "VozPrincipal": 0,
-        "Guitarrista": 0,
-        "Bajista": 0,
-        "Baterista": 0
+        "VozPrincipal": 1,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1
       },
       "artistasAsignados": [
-        {
-          "id": 7,
-          "nombreArtista": "Annie Lennox",
-          "RolesHistoricos": [
-            "VozPrincipal"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Eurythmics"
-            }
-          ],
-          "costoCancionBase": 900,
-          "costoCancionDesc": 810,
-          "cancionesAsignadas": 1,
-          "maxCanciones": 2,
-          "descuento": true,
-          "recargo": 90,
-          "rolesEntrenados": ["VozPrincipal"],
-          "disponibilidadHoraria": 3
-        },
-        {
-          "id": 1,
-          "nombreArtista": "Brian May",
-          "RolesHistoricos": [
-            "Guitarrista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 800,
-          "costoCancionDesc": 800,
-          "cancionesAsignadas": 3,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Guitarrista", "Corista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 3,
-          "nombreArtista": "John Deacon",
-          "RolesHistoricos": [
-            "Bajista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 700,
-          "costoCancionDesc": 700,
-          "cancionesAsignadas": 3,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Bajista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 2,
-          "nombreArtista": "Roger Taylor",
-          "RolesHistoricos": [
-            "Baterista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 750,
-          "costoCancionDesc": 750,
-          "cancionesAsignadas": 3,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Baterista", "Corista"],
-          "disponibilidadHoraria": 8
-        }
+        
       ]
     },
     {
@@ -299,209 +50,20 @@
       "nombreCancion": "Under Pressure",
       "duracion": 4.33,
       "mapRoles": {
-        "VozPrincipal": 1,
-        "Guitarrista": 0,
-        "Bajista": 0,
+        "VozPrincipal": 2,
+        "Guitarrista": 1,
+        "Bajista": 1,
         "Baterista": 1
       },
       "artistasAsignados": [
-        {
-          "id": 1,
-          "nombreArtista": "Brian May",
-          "RolesHistoricos": [
-            "Guitarrista",
-            "Corista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 800,
-          "costoCancionDesc": 800,
-          "cancionesAsignadas": 4,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Guitarrista", "Corista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 3,
-          "nombreArtista": "John Deacon",
-          "RolesHistoricos": [
-            "Bajista"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Queen"
-            }
-          ],
-          "costoCancionBase": 700,
-          "costoCancionDesc": 700,
-          "cancionesAsignadas": 4,
-          "maxCanciones": 100,
-          "descuento": false,
-          "recargo": 0,
-          "rolesEntrenados": ["Bajista"],
-          "disponibilidadHoraria": 8
-        },
-        {
-          "id": 6,
-          "nombreArtista": "David Bowie",
-          "RolesHistoricos": [
-            "VozPrincipal"
-          ],
-          "bandasHistoricas": [
-            {
-              "nombreBanda": "Tin Machine"
-            },
-            {
-              "nombreBanda": "David Bowie"
-            }
-          ],
-          "costoCancionBase": 1500,
-          "costoCancionDesc": 1425,
-          "cancionesAsignadas": 1,
-          "maxCanciones": 2,
-          "descuento": true,
-          "recargo": 75,
-          "rolesEntrenados": ["VozPrincipal"],
-          "disponibilidadHoraria": 4
-        }
+        
       ]
     }
   ],
   "artistasBase": [
-    {
-      "id": 1,
-      "nombreArtista": "Brian May",
-      "RolesHistoricos": [
-        "Guitarrista",
-        "Corista"
-      ],
-      "bandasHistoricas": [
-        {
-          "nombreBanda": "Queen"
-        }
-      ],
-      "costoCancionBase": 800,
-      "costoCancionDesc": 800,
-      "cancionesAsignadas": 4,
-      "maxCanciones": 100,
-      "descuento": false,
-      "recargo": 0,
-      "rolesEntrenados": ["Guitarrista", "Corista"],
-      "disponibilidadHoraria": 8
-    },
-    {
-      "id": 2,
-      "nombreArtista": "Roger Taylor",
-      "RolesHistoricos": [
-        "Baterista",
-        "Corista"
-      ],
-      "bandasHistoricas": [
-        {
-          "nombreBanda": "Queen"
-        }
-      ],
-      "costoCancionBase": 750,
-      "costoCancionDesc": 750,
-      "cancionesAsignadas": 4,
-      "maxCanciones": 100,
-      "descuento": false,
-      "recargo": 0,
-      "rolesEntrenados": ["Baterista", "Corista"],
-      "disponibilidadHoraria": 8
-    },
-    {
-      "id": 3,
-      "nombreArtista": "John Deacon",
-      "RolesHistoricos": [
-        "Bajista"
-      ],
-      "bandasHistoricas": [
-        {
-          "nombreBanda": "Queen"
-        }
-      ],
-      "costoCancionBase": 700,
-      "costoCancionDesc": 700,
-      "cancionesAsignadas": 4,
-      "maxCanciones": 100,
-      "descuento": false,
-      "recargo": 0,
-      "rolesEntrenados": ["Bajista"],
-      "disponibilidadHoraria": 8
-    }
+    
   ],
   "artistasContratados": [
-    {
-      "id": 4,
-      "nombreArtista": "George Michael",
-      "RolesHistoricos": [
-        "VozPrincipal"
-      ],
-      "bandasHistoricas": [
-        {
-          "nombreBanda": "Wham!"
-        },
-        {
-          "nombreBanda": "George Michael"
-        }
-      ],
-      "costoCancionBase": 1000,
-      "costoCancionDesc": 950,
-      "cancionesAsignadas": 1,
-      "maxCanciones": 3,
-      "descuento": true,
-      "recargo": 50,
-      "rolesEntrenados": ["VozPrincipal"],
-      "disponibilidadHoraria": 2
-    },
-    {
-      "id": 6,
-      "nombreArtista": "David Bowie",
-      "RolesHistoricos": [
-        "VozPrincipal"
-      ],
-      "bandasHistoricas": [
-        {
-          "nombreBanda": "Tin Machine"
-        },
-        {
-          "nombreBanda": "David Bowie"
-        }
-      ],
-      "costoCancionBase": 1500,
-      "costoCancionDesc": 1425,
-      "cancionesAsignadas": 1,
-      "maxCanciones": 2,
-      "descuento": true,
-      "recargo": 75,
-      "rolesEntrenados": ["VozPrincipal"],
-      "disponibilidadHoraria": 4
-    },
-    {
-      "id": 7,
-      "nombreArtista": "Annie Lennox",
-      "RolesHistoricos": [
-        "VozPrincipal"
-      ],
-      "bandasHistoricas": [
-        {
-          "nombreBanda": "Eurythmics"
-        }
-      ],
-      "costoCancionBase": 900,
-      "costoCancionDesc": 810,
-      "cancionesAsignadas": 1,
-      "maxCanciones": 2,
-      "descuento": true,
-      "recargo": 90,
-      "rolesEntrenados": ["VozPrincipal"],
-      "disponibilidadHoraria": 3
-    }
+    
   ]
 }
