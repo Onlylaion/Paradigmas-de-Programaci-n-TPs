@@ -122,10 +122,14 @@ public class ControllerContrato {
         artistasNoContratados.removeAll(recital.getArtistasContratados());
         return artistasNoContratados;
     }
-    public void desasignarContrato(Artista artista) throws Exception {
+    public void desasignarContrato(Artista artista) {
     	List<Contrato>contratos = this.contratoRepository.obtenerContratos();
     	for (Contrato contrato : contratos) {
-			contrato.desasignarContrato(artista);
+			try {
+                contrato.desasignarContrato(artista);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
 		}
     }
 

@@ -176,13 +176,14 @@ public class Recital {
 			}
 
 			System.out.println("  Artistas asignados: " + cancion.getListArtAsignados().size());
-			for (Artista artista : cancion.getListArtAsignados()) {
-				System.out.println("    - " + artista.getNombre());
-			}
-
 			for(Contrato contrato : contratos) {
 				if(contrato.getCancion().getId() == cancion.getId()) {
 					System.out.println("  Contrato asociado:");
+					System.out.println("    Artistas contratados:");
+					for(Artista artista : contrato.getArtistasAsignados().keySet()) {
+						Rol rol = contrato.getArtistasAsignados().get(artista);
+						System.out.println("      - " + artista.getNombre() + " (" + rol + ")");
+					}
 					System.out.println("    Costo total: $" + String.format("%.2f", contrato.getCostoTotal()));
 				}
 			}

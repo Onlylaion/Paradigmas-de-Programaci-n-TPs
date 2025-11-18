@@ -122,7 +122,7 @@ public class Contrato {
 		
 
 		if (!encontrado) {
-			throw new Exception("El artista " + artista.getNombre() + " no está en este contrato");
+			throw new Exception("El artista " + artista.getNombre() + " no está asignado en este contrato.");
 		}
 
 		recital.getArtistasContratados().remove(artista);

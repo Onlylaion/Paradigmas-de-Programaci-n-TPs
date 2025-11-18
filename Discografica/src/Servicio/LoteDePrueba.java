@@ -22,8 +22,6 @@ public class LoteDePrueba {
 		this.controllerArtista = new ControllerArtista();
 		this.controllerCancion = new ControllerCancion();
 		this.controllerRecital = new ControllerRecital();
-
-		// this.controllerContrato = new ControllerContrato();
 	}
 
 	public ControllerArtista getControllerArtista() {
@@ -51,11 +49,6 @@ public class LoteDePrueba {
 
 		// GUARDAR EN CONTROLLLERS
 		System.out.println(recitalp);
-		System.out.println("\nArtistas:\n");
-		for (Artista a : artistas) {
-			this.controllerArtista.agregarArtista(a);
-			System.out.println(a);
-		}
 		recitalp.setArtistasBase(artistasBases);
 		this.controllerRecital.agregarRecital(recitalp);
 
@@ -67,6 +60,16 @@ public class LoteDePrueba {
 		for (Cancion c : recitalp.getListaCanciones()) {
 			System.out.println(c);
 			this.controllerCancion.agregarCancion(c);
+		}
+
+		System.out.println("\nArtistas:\n");
+		for (Artista a : artistasBases) {
+			this.controllerArtista.agregarArtista(a);
+			System.out.println(a);
+		}
+		for (Artista a : artistasCandidatos) {
+			this.controllerArtista.agregarArtista(a);
+			System.out.println(a);
 		}
 	}
 }
