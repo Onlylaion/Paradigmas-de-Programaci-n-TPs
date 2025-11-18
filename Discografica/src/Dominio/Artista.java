@@ -202,6 +202,10 @@ public class Artista implements Comparable<Artista>{
 		
 		return -1;
 	}
+	///POSIBLE OPCION PARA QUE NO HAYA INCONSISTENCIAS ENTRE compareTO() y equals():
+	//public int compareTo(Artista o) {
+    //return Integer.compare(this.id, o.id);
+	//}
 	@Override
 	public boolean equals(Object o) {
 	    if (this == o) return true;
@@ -216,3 +220,4 @@ public class Artista implements Comparable<Artista>{
 	    return Objects.hash(id);
 	}
 }
+
