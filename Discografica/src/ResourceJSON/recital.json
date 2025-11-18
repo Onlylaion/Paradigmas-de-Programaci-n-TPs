@@ -13,23 +13,19 @@
         "Baterista": 1,
         "Tecladista": 1
       },
-      "artistasAsignados": [
-        
-      ]
+      "artistasAsignados": []
     },
     {
       "idCancion": 2,
       "nombreCancion": "We Will Rock You",
       "duracion": 3.08,
       "mapRoles": {
-        "VozPrincipal": 2,
+        "VozPrincipal": 1,
         "Guitarrista": 1,
         "Bajista": 1,
         "Baterista": 1
       },
-      "artistasAsignados": [
-        
-      ]
+      "artistasAsignados": []
     },
     {
       "idCancion": 3,
@@ -41,9 +37,7 @@
         "Bajista": 1,
         "Baterista": 1
       },
-      "artistasAsignados": [
-        
-      ]
+      "artistasAsignados": []
     },
     {
       "idCancion": 4,
@@ -55,15 +49,9 @@
         "Bajista": 1,
         "Baterista": 1
       },
-      "artistasAsignados": [
-        
-      ]
+      "artistasAsignados": []
     }
   ],
-  "artistasBase": [
-    
-  ],
-  "artistasContratados": [
-    
-  ]
+  "artistasBase": [],
+  "artistasContratados": []
 }
