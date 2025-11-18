@@ -155,6 +155,12 @@ public class Contrato {
 				double costoConDescuento = calcularCostoConDescuentos(artista);
 				if (costoConDescuento < menorCosto) {
 					menorCosto = costoConDescuento;
+					if(mejorArtista != null)	//Si le habia aplicado descuento a un artista, se lo saco porque contrato a otro
+						try {
+							mejorArtista.quitarDescuento(); 
+						} catch (Exception e) {
+							// No tenia descuento previo
+						}
 					mejorArtista = artista;
 				}
 			}
@@ -166,7 +172,6 @@ public class Contrato {
 	private double calcularCostoConDescuentos(Artista artistaCandidato) {
 		double costo = artistaCandidato.getCosto();
 
-		if(!artistaCandidato.isDescuento()) {
 			for (Artista base : recital.getArtistasBase()) {
 				if (base.compartioBandaCon(artistaCandidato)) {
 						try {
@@ -178,7 +183,6 @@ public class Contrato {
 						break;
 					}
 				}
-		}
 
 		return costo;
 	}

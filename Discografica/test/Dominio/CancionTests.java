@@ -37,19 +37,35 @@ class CancionTests {
     }
 
     @Test
-    void artistaOcupaPrimerRol() throws Exception {
-        //c1.ocuparRol(a1);
+    void artistaOcupaRolQueTiene() throws Exception {
+        c1.ocuparRol(a1, Rol.Bajista);
 
         List<Rol> faltantesReal = c1.consultarRolesFaltantes();
-        List<Rol> faltantesEstimado = List.of(Rol.Guitarrista, Rol.Bajista);
+        List<Rol> faltantesEstimado = List.of(Rol.Guitarrista, Rol.VozPrincipal);
 
-        assertEquals(faltantesEstimado, faltantesReal);
+        assertEquals(
+        		faltantesEstimado.stream().sorted().toList(),
+        		faltantesReal.stream().sorted().toList()
+    		);	//Comparo en el mismo orden
+    }
+    
+    @Test
+    void artistaOcupaRolQueNoTiene() throws Exception {
+        assertFalse(c1.ocuparRol(a1, Rol.Corista));
+        
+        List<Rol> faltantesReal = c1.consultarRolesFaltantes();
+        List<Rol> faltantesEstimado = List.of(Rol.Guitarrista, Rol.VozPrincipal, Rol.Bajista);
+        
+        assertEquals(
+        		faltantesEstimado.stream().sorted().toList(),
+        		faltantesReal.stream().sorted().toList()
+    		);	//Comparo en el mismo orden
     }
 
-    /*@Test
-    void artistaDesocupaPrimerRol() throws Exception {
-        //c1.ocuparRol(a1);
-        c1.desocuparRol(a1);
+    @Test
+    void artistaDesocupaRolQueTiene() throws Exception {
+    	c1.ocuparRol(a1, Rol.VozPrincipal);
+        c1.desocuparRol(a1,Rol.VozPrincipal);
 
         List<Rol> faltantesReal = c1.consultarRolesFaltantes();
         List<Rol> faltantesEstimado = List.of(
@@ -62,5 +78,41 @@ class CancionTests {
         		faltantesEstimado.stream().sorted().toList(),
         		faltantesReal.stream().sorted().toList()
     		);	//Comparo en el mismo orden
-    }*/
+    }
+    
+    @Test
+    void artistaDesocupaRolQueNoTiene() throws Exception {
+    	c1.ocuparRol(a1, Rol.VozPrincipal);
+        
+    	assertFalse(c1.desocuparRol(a1,Rol.Corista));
+
+        List<Rol> faltantesReal = c1.consultarRolesFaltantes();
+        List<Rol> faltantesEstimado = List.of(
+            Rol.Guitarrista,
+            Rol.Bajista
+        );
+
+        assertEquals(
+        		faltantesEstimado.stream().sorted().toList(),
+        		faltantesReal.stream().sorted().toList()
+    		);	//Comparo en el mismo orden
+    }
+    
+    @Test
+    void artistaDesocupaCancionQueNoEsta() throws Exception {      
+    	assertFalse(c1.desocuparRol(a1,Rol.VozPrincipal));
+
+        List<Rol> faltantesReal = c1.consultarRolesFaltantes();
+        List<Rol> faltantesEstimado = List.of(
+            Rol.Guitarrista,
+            Rol.Bajista,
+            Rol.VozPrincipal
+        );
+
+        assertEquals(
+        		faltantesEstimado.stream().sorted().toList(),
+        		faltantesReal.stream().sorted().toList()
+    		);	//Comparo en el mismo orden
+    }
+    
 }

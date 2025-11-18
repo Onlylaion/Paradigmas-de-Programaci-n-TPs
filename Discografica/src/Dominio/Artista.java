@@ -101,8 +101,6 @@ public class Artista implements Comparable<Artista>{
 		return RolesHistoricos.contains(rol) || rolesEntrenados.contains(rol);
 	}
 
-	// Aca te tiro una excepcion si quieren entrenar alguien que ya tiene cierta
-	// habilidad
 	public void agregarRol(Rol rol) throws Exception {
 		if (estaCalificadoParaLaCancion(rol)) {
 			throw new Exception("No se puede entrenar una habilidad a alguien que ya la tiene");
@@ -114,11 +112,6 @@ public class Artista implements Comparable<Artista>{
 
 	public boolean esBase() {
 		return costoCancionBase == 0;
-	}
-
-	/// El precio que vemos para contratar
-	public double getCostoCancionDescuento() {
-		return this.costoCancionDesc;
 	}
 
 	// Calcula el costo final (base o desc + recargo)
@@ -138,7 +131,7 @@ public class Artista implements Comparable<Artista>{
 
 	// Entrenar implica 50% extra no acumulativo
 	/**
-	 * Entrena al artista en nuevo rol (+50% recargo no acumulativo)
+	 * Entrena al artista en nuevo rol (+50% recargo por rol agregado)
 	 */
 	public void entrenar(Rol rol) throws Exception {
 		if (cancionesAsignadas > 0) {
@@ -153,6 +146,13 @@ public class Artista implements Comparable<Artista>{
 			throw new Exception("El artista ya tuvo el descuento aplicado");
 		}
 		this.descuento = true;
+	}
+	
+	public void quitarDescuento() throws Exception {
+		if (this.descuento == false) {
+			throw new Exception("El artista aun no tiene descuento aplicado");
+		}
+		this.descuento = false;
 	}
 
 	/**

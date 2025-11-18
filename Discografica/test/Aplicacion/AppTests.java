@@ -75,12 +75,12 @@ class AppTests {
         Set<Artista> contratados = new TreeSet<>();
 
         c1 = new Cancion("Take me on", 3, rolesCancion1);
-        //c1.ocuparRol(a1);
+        c1.ocuparRol(a1, Rol.Bajista);
         c2 = new Cancion("Amor Salvaje", 4, rolesCancion2);
-        //c2.ocuparRol(a2);
+        c2.ocuparRol(a2, Rol.VozPrincipal);
         c3 = new Cancion("Moscow Mule", 5, rolesCancion3);
-        //c3.ocuparRol(a1);
-        //c3.ocuparRol(a2);
+        c3.ocuparRol(a1, Rol.VozPrincipal);
+        c3.ocuparRol(a2, Rol.VozPrincipal);
 
         Set<Cancion> canciones = new TreeSet<>();
         canciones.add(c1);
@@ -95,8 +95,8 @@ class AppTests {
     @Test
     void rolesFaltantesParaCancion() throws Exception {
         HashMap<Rol, Integer> faltantesEstimado = new HashMap<>();
-        faltantesEstimado.put(Rol.VozPrincipal, 1);
         faltantesEstimado.put(Rol.Guitarrista, 2);
+        faltantesEstimado.put(Rol.VozPrincipal, 1);
         faltantesEstimado.put(Rol.Bajista, 0);
 
         HashMap<Rol, Integer> faltantesReal = (HashMap<Rol, Integer>) r1.getRolesFaltantesCancion(c1);
@@ -107,10 +107,10 @@ class AppTests {
     @Test
     void rolesFaltantesTotalRecital() throws Exception {
         HashMap<Rol, Integer> faltantesEstimado = new HashMap<>();
-        faltantesEstimado.put(Rol.VozPrincipal, 2);
+        faltantesEstimado.put(Rol.VozPrincipal, 1);
         faltantesEstimado.put(Rol.Guitarrista, 3);
         faltantesEstimado.put(Rol.Corista, 1);
-        faltantesEstimado.put(Rol.Tecladista, 2);
+        faltantesEstimado.put(Rol.Tecladista, 3);
 
         HashMap<Rol, Integer> faltantesReal = (HashMap<Rol, Integer>) r1.getRolesFaltantesTotal();
 
@@ -173,22 +173,19 @@ class AppTests {
     	
     	//Quedarian :
     	//Adele como corista: le gana a Calamaro por el descuento al compartir banda ($300)
-    	//Cerati como voz principal: primer tenido en cuenta, por ser base ($750).
+    	//Cerati como voz principal: primer tenido en cuenta, por ser el primer base ($750).
     	//Chano como baterista: es el único, tiene descuento por compartir banda ($500).
     	
-    	List<Artista> asignadosEstimado = new ArrayList<>();
-    	asignadosEstimado.add(a2);
-    	asignadosEstimado.add(a4);
-    	asignadosEstimado.add(a5);
-    	
-    	/*List<Artista> asignadosReal = contrato.getArtistasAsignados();
+    	HashMap<Artista, Rol> asignadosEstimado = new HashMap<>();
+    	asignadosEstimado.put(a2, Rol.VozPrincipal);
+    	asignadosEstimado.put(a5, Rol.Corista);
+    	asignadosEstimado.put(a4, Rol.Baterista);
+
+    	HashMap<Artista, Rol> asignadosReal = (HashMap<Artista, Rol>) contrato.getArtistasAsignados();
     	
     	
     	assertEquals(1550, contrato.getCostoTotal());
-    	assertEquals(
-    			asignadosEstimado.stream().sorted().toList(),
-    			asignadosReal.stream().sorted().toList()
-    		);	//Comparo en el mismo orden*/
+    	assertEquals(asignadosEstimado, asignadosReal);
 
     }
     
