@@ -1,0 +1,50 @@
+[
+     {
+    "id": 1,
+    "nombreArtista": "Brian May",
+    "RolesHistoricos": ["Guitarrista", "Corista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 0,
+    "costoCancionDesc": 0,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 100,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 260
+  },
+  {
+    "id": 2,
+    "nombreArtista": "Roger Taylor",
+    "RolesHistoricos": ["Baterista", "Corista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 0,
+    "costoCancionDesc": 0,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 100,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 300
+  },
+  {
+    "id": 3,
+    "nombreArtista": "John Deacon",
+    "RolesHistoricos": ["Bajista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 0,
+    "costoCancionDesc": 0,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 100,
+    "descuento": false,
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 400
+  }
+]

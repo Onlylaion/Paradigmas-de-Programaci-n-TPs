@@ -1,0 +1,69 @@
+{
+  "idRecital": 1,
+  "fecha": "2025-01-01",
+  "listaCanciones": [
+    {
+      "idCancion": 1,
+      "nombreCancion": "Somebody to Love",
+      "duracion": 4.95,
+      "mapRoles": {
+        "VozPrincipal": 1,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1,
+        "Tecladista": 1
+      },
+      "artistasAsignados": [
+        
+      ]
+    },
+    {
+      "idCancion": 2,
+      "nombreCancion": "We Will Rock You",
+      "duracion": 3.08,
+      "mapRoles": {
+        "VozPrincipal": 2,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1
+      },
+      "artistasAsignados": [
+        
+      ]
+    },
+    {
+      "idCancion": 3,
+      "nombreCancion": "These Are the Days of Our Lives",
+      "duracion": 3.9,
+      "mapRoles": {
+        "VozPrincipal": 1,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1
+      },
+      "artistasAsignados": [
+        
+      ]
+    },
+    {
+      "idCancion": 4,
+      "nombreCancion": "Under Pressure",
+      "duracion": 4.33,
+      "mapRoles": {
+        "VozPrincipal": 2,
+        "Guitarrista": 1,
+        "Bajista": 1,
+        "Baterista": 1
+      },
+      "artistasAsignados": [
+        
+      ]
+    }
+  ],
+  "artistasBase": [
+    
+  ],
+  "artistasContratados": [
+    
+  ]
+}
