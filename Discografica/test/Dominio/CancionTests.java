@@ -82,8 +82,7 @@ class CancionTests {
     
     @Test
     void artistaDesocupaRolQueNoTiene() throws Exception {
-    	c1.ocuparRol(a1, Rol.VozPrincipal);
-        
+    	c1.ocuparRol(a1, Rol.VozPrincipal);    	
     	assertFalse(c1.desocuparRol(a1,Rol.Corista));
 
         List<Rol> faltantesReal = c1.consultarRolesFaltantes();

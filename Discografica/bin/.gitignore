@@ -1,4 +1,5 @@
 /Aplicacion/
-/Persistencia/
 /Dominio/
-/ResourceJSON/
+/Persistencia/
+/Repositorio/
+/Servicio/

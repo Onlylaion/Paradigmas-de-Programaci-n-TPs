@@ -94,12 +94,18 @@ public class Cancion implements Comparable<Cancion>{
 	/**
 	 * Desocupa un rol (quita la asignación de un artista)
 	 */
-	public void desocuparRol(Artista artista, Rol rol) throws Exception {
+	public boolean desocuparRol(Artista artista, Rol rol) throws Exception {
+		
+		if(!artistasAsignados.contains(artista) || !mapRoles.containsKey(rol))
+			return false;
+		
 		// Remover artista
 		artistasAsignados.remove(artista);
 
 		// Incrementar el rol disponible
 		mapRoles.put(rol, mapRoles.get(rol) + 1);
+		
+		return true;
 	}
 
 	/**

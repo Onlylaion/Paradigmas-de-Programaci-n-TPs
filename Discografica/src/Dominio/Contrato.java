@@ -154,6 +154,15 @@ public class Contrato {
 				double costoConDescuento = calcularCostoConDescuentos(artista);
 				if (costoConDescuento < menorCosto) {
 					menorCosto = costoConDescuento;
+					
+					if(mejorArtista != null) {	//Le quito el descuento que le habia asignado, ya que apareció un artista mejor
+						try {
+							mejorArtista.quitarDescuento();
+						} catch (Exception e) {
+							// Ya tiene descuento en falso
+						}
+					}
+					
 					mejorArtista = artista;
 				}
 			}

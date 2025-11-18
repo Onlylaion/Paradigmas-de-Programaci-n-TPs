@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -33,7 +32,7 @@ class AppTests {
     private Banda b2;
     private Banda b3;
     private Banda b4;
-    private List<Artista> candidatos;
+    private Set<Artista> candidatos;
 
     @BeforeEach
     void setUp() throws Exception {
@@ -152,7 +151,7 @@ class AppTests {
     	a6= new Artista("Taylor", rolesArtista6, bandas6, 300, 5, 2);
     	
     	
-    	candidatos = new ArrayList<>();
+    	candidatos = new TreeSet<>();
     	candidatos.add(a3);
     	candidatos.add(a4);
     	candidatos.add(a5);

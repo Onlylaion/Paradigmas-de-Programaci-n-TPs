@@ -154,6 +154,13 @@ public class Artista implements Comparable<Artista>{
 		}
 		this.descuento = true;
 	}
+	
+	public void quitarDescuento() throws Exception {
+		if (this.descuento == false) {
+			throw new Exception("El artista no tiene descuento aplicado");
+		}
+		this.descuento = false;
+	}
 
 	/**
 	 * Asigna a una canción más
