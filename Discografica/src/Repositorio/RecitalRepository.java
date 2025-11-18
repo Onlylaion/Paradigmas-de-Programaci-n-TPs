@@ -53,4 +53,8 @@ public class RecitalRepository {
         }
         return null;
     }
+    
+    public List<Recital> getListaRecitales() {
+        return this.recitales;
+    }
 }
