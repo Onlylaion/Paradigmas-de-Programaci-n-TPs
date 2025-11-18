@@ -1,6 +1,7 @@
 package Dominio;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 public class Recital {
@@ -150,7 +151,7 @@ public class Recital {
 	}
 
 	// Listar canciones con estado
-	public void listarCancionesConEstado() {
+	public void listarCancionesConEstado(List<Contrato> contratos) {
 		System.out.println("\n=== ESTADO DE CANCIONES ===\n");
 
 		for (Cancion cancion : listaCanciones) {
@@ -173,6 +174,13 @@ public class Recital {
 			System.out.println("  Artistas asignados: " + cancion.getListArtAsignados().size());
 			for (Artista artista : cancion.getListArtAsignados()) {
 				System.out.println("    - " + artista.getNombre());
+			}
+
+			for(Contrato contrato : contratos) {
+				if(contrato.getCancion().getId() == cancion.getId()) {
+					System.out.println("  Contrato asociado:");
+					System.out.println("    Costo total: $" + String.format("%.2f", contrato.getCostoTotal()));
+				}
 			}
 			System.out.println();
 		}

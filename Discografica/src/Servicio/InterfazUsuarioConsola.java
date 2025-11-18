@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Scanner;
 
-//import Persistencia.ControllerArchivoInicial;
 import Persistencia.ControllerArtista;
 import Persistencia.ControllerCancion;
 import Persistencia.ControllerRecital;
@@ -14,7 +13,6 @@ import Dominio.Cancion;
 import Dominio.Rol;
 
 public class InterfazUsuarioConsola {
-	// private ControllerArchivoInicial controladorArchivos;
 	private ControllerCancion controladorCancion;
 	private ControllerContrato controladorContrato;
 	private ControllerRecital controladorRecital;
@@ -218,7 +216,7 @@ public class InterfazUsuarioConsola {
 
 	public void listarCancionesConEstado() {
 		try {
-			this.controladorRecital.listarCancionesConEstado();
+			this.controladorContrato.listarContratoYCancionesConEstado();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

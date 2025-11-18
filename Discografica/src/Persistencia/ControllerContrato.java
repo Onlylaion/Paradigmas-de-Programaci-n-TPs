@@ -35,22 +35,6 @@ public class ControllerContrato {
         contratoRepository.eliminarContrato(contrato);
     }
 
-    // public List<Artista> obtenerArtistasCandidatos() throws Exception {
-    //     Contrato contrato = contratoRepository.findById(1);
-    //     if(contrato == null) {
-    //         throw new Exception("Contrato no encontrado.");
-    //     }
-    //     return contrato.getArtistasCandidatos();
-    // }
-
-    // public Recital obtenerRecital() throws Exception {
-    //     Contrato contrato = contratoRepository.findById(1);
-    //     if(contrato == null) {
-    //         throw new Exception("Contrato no encontrado.");
-    //     }
-    //     return contrato.getRecital();
-    // }
-
     public List<Contrato> obtenerContratos() {
         return contratoRepository.obtenerContratos();
     }
@@ -142,5 +126,10 @@ public class ControllerContrato {
     	for (Contrato contrato : contratos) {
 			contrato.desasignarContrato(artista);
 		}
+    }
+
+    public void listarContratoYCancionesConEstado() {
+    	List<Contrato> contratos = this.contratoRepository.obtenerContratos();
+    	recital.listarCancionesConEstado(contratos);
     }
 }
