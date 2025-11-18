@@ -79,7 +79,7 @@ public class Cancion implements Comparable<Cancion>{
 
 		// Si no encontró en históricos, buscar en roles entrenados
 		for (Rol rolEntrenado : otro.getRolesEntrenados()) {
-			if (rolEntrenado.equals(rol) && mapRoles.containsKey(rolEntrenado) && mapRoles.get(rolEntrenado) > 0) {
+			if (mapRoles.containsKey(rolEntrenado) && mapRoles.get(rolEntrenado) > 0) {
 				// Decrementar el rol disponible
 				mapRoles.put(rolEntrenado, mapRoles.get(rolEntrenado) - 1);
 				// Agregar el artista
@@ -94,18 +94,12 @@ public class Cancion implements Comparable<Cancion>{
 	/**
 	 * Desocupa un rol (quita la asignación de un artista)
 	 */
-	public boolean desocuparRol(Artista artista, Rol rol) throws Exception {
-		
-		if(!artistasAsignados.contains(artista) || !mapRoles.containsKey(rol))
-			return false;
-		
+	public void desocuparRol(Artista artista, Rol rol) throws Exception {
 		// Remover artista
 		artistasAsignados.remove(artista);
 
 		// Incrementar el rol disponible
 		mapRoles.put(rol, mapRoles.get(rol) + 1);
-		
-		return true;
 	}
 
 	/**
