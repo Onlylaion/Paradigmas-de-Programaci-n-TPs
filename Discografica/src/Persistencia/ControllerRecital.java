@@ -7,6 +7,7 @@ import Dominio.Rol;
 import Dominio.Cancion;
 
 import java.util.Set;
+import java.util.List;
 
 import Dominio.Artista;
 
@@ -57,6 +58,16 @@ public class ControllerRecital {
 		}
 	}
 
+	public void listarCancionesConEstado() throws Exception {
+		int id = 1;
+		Recital recital = recitalRepository.findById(id);
+		if (recital == null) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
+		} else {
+			recital.listarCancionesConEstado();
+		}
+	}
+
 	public Set<Artista> getArtistasContratados() throws Exception {
 		int id = 1;
 		Recital recital = recitalRepository.findById(id);
@@ -84,5 +95,10 @@ public class ControllerRecital {
 		} else {
 			recital.verEstadoRecital();
 		}
+	}
+	
+	public List<Recital> getRecitales()
+	{
+		return recitalRepository.getListaRecitales();
 	}
 }

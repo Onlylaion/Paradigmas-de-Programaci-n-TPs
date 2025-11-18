@@ -19,9 +19,9 @@ import Dominio.Rol;
 public class ControllerContrato {
     private ContratoRepository contratoRepository;
     private Recital recital;
-	private List<Artista> artistasCandidatos;
+	private Set<Artista> artistasCandidatos;
 
-    public ControllerContrato(Recital recital, List<Artista> artistasCandidatos) {
+    public ControllerContrato(Recital recital, Set<Artista> artistasCandidatos) {
         this.contratoRepository = new ContratoRepository();
         this.recital = recital;
         this.artistasCandidatos = artistasCandidatos;
@@ -34,6 +34,7 @@ public class ControllerContrato {
     public void eliminarContrato(Contrato contrato) {
         contratoRepository.eliminarContrato(contrato);
     }
+
 
     public List<Contrato> obtenerContratos() {
         return contratoRepository.obtenerContratos();
@@ -127,9 +128,17 @@ public class ControllerContrato {
 			contrato.desasignarContrato(artista);
 		}
     }
-
-    public void listarContratoYCancionesConEstado() {
-    	List<Contrato> contratos = this.contratoRepository.obtenerContratos();
-    	recital.listarCancionesConEstado(contratos);
+    public double contratarEstosArtistasParaCancion(Set<Artista> artistasAContratar, Cancion cancion) throws Exception
+    {
+    	Contrato nuevoContrato = new Contrato(recital,cancion);
+    	if(nuevoContrato.contratoPorCancion(artistasAContratar))
+    	{
+    		contratoRepository.agregarContrato(nuevoContrato);
+    		return nuevoContrato.getCostoTotal();
+    	}
+    	else{
+    		throw new Exception("No se pudo concretar el contrato para la cancion seleccionada");
+    	}
+    	
     }
 }
