@@ -1,11 +1,19 @@
 package Servicio;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import Dominio.Artista;
+import Dominio.Banda;
 import Dominio.Cancion;
 import Dominio.Recital;
+import Dominio.Contrato;
+import Dominio.Rol;
 import Persistencia.ControllerArtista;
 import Persistencia.ControllerCancion;
 import Persistencia.ControllerRecital;
@@ -22,6 +30,8 @@ public class LoteDePrueba {
 		this.controllerArtista = new ControllerArtista();
 		this.controllerCancion = new ControllerCancion();
 		this.controllerRecital = new ControllerRecital();
+
+		// this.controllerContrato = new ControllerContrato();
 	}
 
 	public ControllerArtista getControllerArtista() {
@@ -49,27 +59,28 @@ public class LoteDePrueba {
 
 		// GUARDAR EN CONTROLLLERS
 		System.out.println(recitalp);
-		recitalp.setArtistasBase(artistasBases);
-		this.controllerRecital.agregarRecital(recitalp);
-
+		System.out.println("\nArtistas:\n");
+		for (Artista a : artistas) {
+			controllerArtista.agregarArtista(a);
+			System.out.println(a);
+		}
+		
+		Set<Cancion> canciones = new HashSet<>();
+		for(Cancion c: recitalp.getListaCanciones())
+		{
+			System.out.println(c);
+			canciones.add(c);
+			controllerCancion.agregarCancion(c);
+		}
+		
+		Recital recital = new Recital(canciones, artistasBases, new HashSet<>(), recitalp.getFecha());
+		System.out.println(recital);
+		controllerRecital.agregarRecital(recital);
+		
 		Set<Artista> artistasCandidatos = new HashSet<>(artistas);
 		artistasCandidatos.removeAll(artistasBases);
-		this.controllerContrato = new ControllerContrato(recitalp, artistasCandidatos);
+		System.out.println(artistasCandidatos);
+		controllerContrato = new ControllerContrato(recital, artistasCandidatos);
 		
-		System.out.println("\nCanciones:\n");
-		for (Cancion c : recitalp.getListaCanciones()) {
-			System.out.println(c);
-			this.controllerCancion.agregarCancion(c);
-		}
-
-		System.out.println("\nArtistas:\n");
-		for (Artista a : artistasBases) {
-			this.controllerArtista.agregarArtista(a);
-			System.out.println(a);
-		}
-		for (Artista a : artistasCandidatos) {
-			this.controllerArtista.agregarArtista(a);
-			System.out.println(a);
-		}
 	}
 }
