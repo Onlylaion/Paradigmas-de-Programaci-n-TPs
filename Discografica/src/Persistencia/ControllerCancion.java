@@ -2,8 +2,8 @@ package Persistencia;
 
 import java.util.Map;
 import java.util.HashMap;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+import java.util.LinkedList;
 
 import Repositorio.CancionRepository;
 
@@ -29,18 +29,18 @@ public class ControllerCancion {
         return cancionRepo.findById(id);
     }
 
-    public Set<Cancion> obtenerCanciones() {
+    public List<Cancion> obtenerCanciones() {
         return cancionRepo.getAllCanciones();
     }
 
-    public Set<Cancion> obtenerCancionesConPuestosFaltantes() throws Exception {
-        Set<Cancion> cancionesConPuestosFaltantes = new HashSet<Cancion>();
+    public List<Cancion> obtenerCancionesConPuestosFaltantes() throws Exception {
+        List<Cancion> cancionesConPuestosFaltantes = new LinkedList<Cancion>();
 
         for (Cancion cancion : cancionRepo.getAllCanciones()) {
-			if (!cancion.puestosCubiertos()) {
-				cancionesConPuestosFaltantes.add(cancion);
-			}
-		}
+            if (!cancion.puestosCubiertos()) {
+                cancionesConPuestosFaltantes.add(cancion);
+            }
+        }
 
         if (cancionesConPuestosFaltantes.isEmpty()) {
             throw new Exception("Todas las canciones tienen los puestos cubiertos!");
@@ -67,18 +67,19 @@ public class ControllerCancion {
         Map<Rol, Integer> rolesFaltantesTotal = new HashMap<Rol, Integer>();
 
         for (Cancion cancionActual : cancionRepo.getAllCanciones()) {
-            if(cancionActual.puestosCubiertos()) {
+            if (cancionActual.puestosCubiertos()) {
                 continue;
             } else {
                 for (Map.Entry<Rol, Integer> entry : cancionActual.getMapRoles().entrySet()) {
                     if (entry.getValue() > 0) {
-                        rolesFaltantesTotal.put(entry.getKey(), rolesFaltantesTotal.getOrDefault(entry.getKey(), 0) + entry.getValue());
+                        rolesFaltantesTotal.put(entry.getKey(),
+                                rolesFaltantesTotal.getOrDefault(entry.getKey(), 0) + entry.getValue());
                     }
                 }
             }
         }
 
-        if(rolesFaltantesTotal.isEmpty()) {
+        if (rolesFaltantesTotal.isEmpty()) {
             throw new Exception("Todos los roles estan cubiertos!");
         }
 

@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 
-public class Cancion implements Comparable<Cancion>{
+public class Cancion implements Comparable<Cancion> {
 	private int idCancion;
 	private String nombreCancion;
 	private double duracion;
@@ -58,7 +59,9 @@ public class Cancion implements Comparable<Cancion>{
 
 	/**
 	 * Ocupa un rol con un artista
-	 * Busca un rol compatible entre los que tiene el artista y los que necesita la canción
+	 * Busca un rol compatible entre los que tiene el artista y los que necesita la
+	 * canción
+	 * 
 	 * @return true si se asignó exitosamente, false si no fue posible
 	 */
 	public boolean ocuparRol(Artista otro, Rol rol) throws Exception {
@@ -122,10 +125,27 @@ public class Cancion implements Comparable<Cancion>{
 	}
 
 	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Cancion cancion = (Cancion) o;
+		return idCancion == cancion.idCancion;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idCancion);
+	}
+
+	@Override
 	public int compareTo(Cancion o) {
-		if(this.nombreCancion.equals(o.nombreCancion))
+		if (this.idCancion == o.idCancion)
 			return 0;
-		else if(this.nombreCancion.compareTo(o.nombreCancion) > 1)
+		else if (this.idCancion > o.idCancion)
 			return 1;
 
 		return -1;

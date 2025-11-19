@@ -1,7 +1,7 @@
 package Servicio;
 
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.Scanner;
 
 //import Persistencia.ControllerArchivoInicial;
@@ -44,7 +44,8 @@ public class InterfazUsuarioConsola {
 	}
 
 	public void rolesFaltantesCancion() {
-		Set<Cancion> canciones = controladorCancion.obtenerCanciones();
+		List<Cancion> canciones = controladorCancion.obtenerCanciones();
+		canciones.sort(null);
 		for (Cancion cancionActual : canciones) {
 			System.out.println(cancionActual.getId() + " - " + cancionActual.getNombreCancion());
 		}
@@ -55,9 +56,9 @@ public class InterfazUsuarioConsola {
 
 		Cancion seleccionada = null;
 
-		for (Cancion cancionActual : canciones) {
-			if (cancionActual.getId() == seleccion) {
-				seleccionada = cancionActual;
+		for (int i = 0; i < canciones.size() && i < seleccion; i++) {
+			if (canciones.get(i).getId() == seleccion) {
+				seleccionada = canciones.get(i);
 				break;
 			}
 		}
@@ -96,9 +97,10 @@ public class InterfazUsuarioConsola {
 	}
 
 	public void contratarUnaCancion() {
-		Set<Cancion> canciones = null;
+		List<Cancion> canciones = null;
 		try {
 			canciones = controladorCancion.obtenerCancionesConPuestosFaltantes();
+			canciones.sort(null);
 
 			for (Cancion cancionActual : canciones) {
 				System.out.println(cancionActual.getId() + " - " + cancionActual.getNombreCancion());
@@ -113,9 +115,9 @@ public class InterfazUsuarioConsola {
 		scanner.nextLine();
 
 		Cancion seleccionada = null;
-		for (Cancion cancionActual : canciones) {
-			if (cancionActual.getId() == seleccion) {
-				seleccionada = cancionActual;
+		for (int i = 0; i < canciones.size() && i < seleccion; i++) {
+			if (canciones.get(i).getId() == seleccion) {
+				seleccionada = canciones.get(i);
 				break;
 			}
 		}
@@ -132,7 +134,8 @@ public class InterfazUsuarioConsola {
 
 			System.out.println("\nAsignaciones para la cancion: " + seleccionada.getNombreCancion());
 			System.out.println("--------------------------------");
-			Map<Artista, Rol> artistasAsignados = controladorContrato.obtenerArtistasYRolContratadosPorCancion(seleccionada);
+			Map<Artista, Rol> artistasAsignados = controladorContrato
+					.obtenerArtistasYRolContratadosPorCancion(seleccionada);
 			for (Map.Entry<Artista, Rol> entry : artistasAsignados.entrySet()) {
 				Artista a = entry.getKey();
 				Rol rol = entry.getValue();
@@ -145,9 +148,10 @@ public class InterfazUsuarioConsola {
 	}
 
 	public void contratarTodasCanciones() {
-		Set<Cancion> canciones = null;
+		List<Cancion> canciones = null;
 		try {
 			canciones = controladorCancion.obtenerCancionesConPuestosFaltantes();
+			canciones.sort(null);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			return;
@@ -175,7 +179,8 @@ public class InterfazUsuarioConsola {
 	}
 
 	public void entrenarArtista() {
-		Set<Artista> artistas = controladorContrato.obtenerTodosArtistasNoContratados();
+		List<Artista> artistas = controladorContrato.obtenerTodosArtistasNoContratados();
+		artistas.sort(null);
 		System.out.println("Artistas disponibles para entrenar:");
 		for (Artista artistaActual : artistas) {
 			System.out.println(artistaActual.getNombre());
@@ -226,21 +231,22 @@ public class InterfazUsuarioConsola {
 		}
 	}
 
-	public void desasignarArtista(){
+	public void desasignarArtista() {
 		try {
-			//Listar artistas
-			for (Artista artista : controladorRecital.getArtistasContratados()) {
-				System.out.println(artista.getId()+ " " + artista.getNombre() );
+			// Listar artistas
+			List<Artista> artistas = controladorRecital.getArtistasContratados();
+			artistas.sort(null);
+			for (Artista artista : artistas) {
+				System.out.println(artista.getId() + " " + artista.getNombre());
 			}
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("No hay artistas contratados");
 		}
 
-		//Seleccionar artista a borrar
+		// Seleccionar artista a borrar
 		System.out.print("\nSelecciona un artista (numero): ");
 		int seleccion = scanner.nextInt();
 		scanner.nextLine();
-
 
 		try {
 			Artista seleccionado = controladorArtista.findById(seleccion);
@@ -250,29 +256,26 @@ public class InterfazUsuarioConsola {
 			System.out.println("\nError: " + e.getMessage());
 		}
 	}
-	
+
 	public void verInformacionRecital() {
 		try {
 			System.out.println(this.controladorRecital.buscarXId(1));
 			this.controladorRecital.verEstadoRecital();
-		}catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
 	}
-	
-	public void realizarConsultaMinimosProlog()
-	{
+
+	public void realizarConsultaMinimosProlog() {
 		try {
-			for(Recital r: controladorRecital.getRecitales() )
-			{
+			for (Recital r : controladorRecital.getRecitales()) {
 				PrologQuery.ConsultarEntrenamientosMinimos(r);
 			}
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-			
+
 	}
 
 }

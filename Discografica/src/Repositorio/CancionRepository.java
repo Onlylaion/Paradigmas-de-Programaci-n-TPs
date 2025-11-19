@@ -1,16 +1,16 @@
 package Repositorio;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import Dominio.Cancion;
 
 public class CancionRepository {
     private int id = 0;
-    private Set<Cancion> canciones;
+    private List<Cancion> canciones;
 
     public CancionRepository() {
-        this.canciones = new HashSet<Cancion>();
+        this.canciones = new ArrayList<Cancion>();
     }
 
     public void addCancion(Cancion cancion) {
@@ -23,7 +23,7 @@ public class CancionRepository {
         this.canciones.remove(cancion);
     }
 
-    public Set<Cancion> getAllCanciones() {
+    public List<Cancion> getAllCanciones() {
         return this.canciones;
     }
 
@@ -32,12 +32,10 @@ public class CancionRepository {
         this.id = 0;
     }
 
-    public Cancion findById(int id) {
-        for (Cancion cancionActual : this.canciones) {
-            if (cancionActual.getId() == id) {
-                return cancionActual;
-            }
+    public Cancion findById(int id) throws IndexOutOfBoundsException {
+        if (id > this.canciones.size() || id < 1) {
+            throw new IndexOutOfBoundsException("Indice incorrecto");
         }
-        return null;
+        return this.canciones.get(id - 1);
     }
 }

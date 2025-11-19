@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class Artista implements Comparable<Artista>{
+public class Artista implements Comparable<Artista> {
 	private int id;
 	private String nombreArtista;
 	private List<Rol> RolesHistoricos; // Puedo querer agregarle Roles por si lo entrené
@@ -195,25 +195,27 @@ public class Artista implements Comparable<Artista>{
 
 	@Override
 	public boolean equals(Object o) {
-		if (this == o) return true;
-		if (o == null || getClass() != o.getClass()) return false;
- 
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+
 		Artista artista = (Artista) o;
 		return id == artista.id;
 	}
- 
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
- 
+
 	@Override
 	public int compareTo(Artista o) {
-		if(this.nombreArtista.equals(o.nombreArtista))
+		if (this.id == o.id)
 			return 0;
-		else if(this.nombreArtista.compareTo(o.nombreArtista) > 1)
+		else if (this.id > o.id)
 			return 1;
-		
+
 		return -1;
 	}
 

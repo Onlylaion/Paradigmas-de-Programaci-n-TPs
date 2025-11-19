@@ -5,10 +5,9 @@ import Repositorio.ContratoRepository;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedList;
 
 import Dominio.Contrato;
 import Dominio.Cancion;
@@ -19,9 +18,9 @@ import Dominio.Rol;
 public class ControllerContrato {
     private ContratoRepository contratoRepository;
     private Recital recital;
-	private Set<Artista> artistasCandidatos;
+    private List<Artista> artistasCandidatos;
 
-    public ControllerContrato(Recital recital, Set<Artista> artistasCandidatos) {
+    public ControllerContrato(Recital recital, List<Artista> artistasCandidatos) {
         this.contratoRepository = new ContratoRepository();
         this.recital = recital;
         this.artistasCandidatos = artistasCandidatos;
@@ -29,12 +28,11 @@ public class ControllerContrato {
 
     public void agregarContrato(Contrato contrato) {
         contratoRepository.agregarContrato(contrato);
-    } 
+    }
 
     public void eliminarContrato(Contrato contrato) {
         contratoRepository.eliminarContrato(contrato);
     }
-
 
     public List<Contrato> obtenerContratos() {
         return contratoRepository.obtenerContratos();
@@ -42,32 +40,32 @@ public class ControllerContrato {
 
     public double contratarPorCancion(Cancion cancion) throws Exception {
         Contrato nuevoContrato = contratoRepository.findByCancionId(cancion.getId());
-        if(nuevoContrato == null) {
+        if (nuevoContrato == null) {
             nuevoContrato = new Contrato(recital, cancion);
-            if(nuevoContrato.contratoPorCancion(artistasCandidatos)) {
+            if (nuevoContrato.contratoPorCancion(artistasCandidatos)) {
                 contratoRepository.agregarContrato(nuevoContrato);
                 return nuevoContrato.getCostoTotal();
             } else {
                 throw new Exception("No se pudo concretar el contrato para la cancion seleccionada.");
             }
-        } else if(!cancion.puestosCubiertos()){
-            if(nuevoContrato.contratoPorCancion(artistasCandidatos)) {
+        } else if (!cancion.puestosCubiertos()) {
+            if (nuevoContrato.contratoPorCancion(artistasCandidatos)) {
                 return nuevoContrato.getCostoTotal();
             } else {
                 throw new Exception("No se pudo concretar el contrato para la cancion seleccionada.");
             }
-        }else {
+        } else {
             throw new Exception("Ya existe un contrato para la cancion seleccionada.");
         }
-        
+
     }
 
-    public double contratoTodasCanciones(Set<Cancion> canciones) {
+    public double contratoTodasCanciones(List<Cancion> canciones) {
         double costoFinal = 0.0;
-        for(Cancion c : canciones) {    
+        for (Cancion c : canciones) {
             try {
                 costoFinal += this.contratarPorCancion(c);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 System.out.println("No se pudo concretar el contrato para todas las canciones: " + e.getMessage());
             }
         }
@@ -76,7 +74,7 @@ public class ControllerContrato {
 
     public List<Artista> obtenerArtistasContratadosPorCancion(Cancion cancion) throws Exception {
         List<Contrato> contratos = contratoRepository.obtenerContratos();
-        if(contratos == null || contratos.isEmpty()) {
+        if (contratos == null || contratos.isEmpty()) {
             throw new Exception("Contratos no realizados.");
         }
 
@@ -88,10 +86,10 @@ public class ControllerContrato {
         }
         throw new Exception("No se encontraron artistas contratados para la cancion con ID: " + cancion.getId());
     }
-    
+
     public Map<Artista, Rol> obtenerArtistasYRolContratadosPorCancion(Cancion cancion) throws Exception {
         List<Contrato> contratos = contratoRepository.obtenerContratos();
-        if(contratos == null || contratos.isEmpty()) {
+        if (contratos == null || contratos.isEmpty()) {
             throw new Exception("Contratos no realizados.");
         }
 
@@ -105,7 +103,7 @@ public class ControllerContrato {
 
     public Map<Cancion, List<Artista>> obtenerTodosArtistasContratadosPorCancion() throws Exception {
         List<Contrato> contratos = contratoRepository.obtenerContratos();
-        if(contratos == null || contratos.isEmpty()) {
+        if (contratos == null || contratos.isEmpty()) {
             throw new Exception("Contratos no realizados.");
         }
 
@@ -116,15 +114,15 @@ public class ControllerContrato {
         }
         return asignacionesPorCancion;
     }
-	
-    public Set<Artista> obtenerTodosArtistasNoContratados() {
-    	Set<Artista> artistasNoContratados = new HashSet<>(artistasCandidatos);
+
+    public List<Artista> obtenerTodosArtistasNoContratados() {
+        List<Artista> artistasNoContratados = new LinkedList<>(artistasCandidatos);
         artistasNoContratados.removeAll(recital.getArtistasContratados());
         return artistasNoContratados;
     }
 
     public void desasignarContrato(Artista artista) {
-        List<Contrato>contratos = null;
+        List<Contrato> contratos = null;
         try {
             contratos = this.contratoRepository.obtenerContratos();
         } catch (Exception e) {
@@ -135,7 +133,7 @@ public class ControllerContrato {
         for (Contrato contrato : contratos) {
             try {
                 contrato.desasignarContrato(artista);
-                
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
@@ -143,21 +141,7 @@ public class ControllerContrato {
     }
 
     public void listarContratoYCancionesConEstado() {
-    	List<Contrato> contratos = this.contratoRepository.obtenerContratos();
-    	recital.listarCancionesConEstado(contratos);
-    }
-
-    public double contratarEstosArtistasParaCancion(Set<Artista> artistasAContratar, Cancion cancion) throws Exception
-    {
-    	Contrato nuevoContrato = new Contrato(recital,cancion);
-    	if(nuevoContrato.contratoPorCancion(artistasAContratar))
-    	{
-    		contratoRepository.agregarContrato(nuevoContrato);
-    		return nuevoContrato.getCostoTotal();
-    	}
-    	else{
-    		throw new Exception("No se pudo concretar el contrato para la cancion seleccionada");
-    	}
-    	
+        List<Contrato> contratos = this.contratoRepository.obtenerContratos();
+        recital.listarCancionesConEstado(contratos);
     }
 }

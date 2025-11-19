@@ -6,7 +6,6 @@ import Dominio.Recital;
 import Dominio.Rol;
 import Dominio.Cancion;
 
-import java.util.Set;
 import java.util.List;
 
 import Dominio.Artista;
@@ -37,58 +36,55 @@ public class ControllerRecital {
 	// Parte extra
 	// solo 1 vale el id, porque es un solo recital
 	public void entrenarArtista(String nombreArtista, Rol rolNuevo) throws Exception {
-		// Traer del repositorio el recital, y entrenarlo
 		int id = 1;
-		Recital recital = recitalRepository.findById(id);
-		if (recital == null) {
-			throw new Exception("El recital no ha sido encontrado en el repositorio");
-		} else {
+		try {
+			Recital recital = recitalRepository.findById(id);
 			recital.entrenarArtista(nombreArtista, rolNuevo);
+		} catch (Exception e) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
 		}
-
 	}
 
 	public void listarArtistasContratados() throws Exception {
 		int id = 1;
-		Recital recital = recitalRepository.findById(id);
-		if (recital == null) {
-			throw new Exception("El recital no ha sido encontrado en el repositorio");
-		} else {
+		try {
+			Recital recital = recitalRepository.findById(id);
 			recital.listarArtistasContratados();
+		} catch (Exception e) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
 		}
 	}
 
-	public Set<Artista> getArtistasContratados() throws Exception {
+	public List<Artista> getArtistasContratados() throws Exception {
 		int id = 1;
-		Recital recital = recitalRepository.findById(id);
-		if (recital == null) {
-			throw new Exception("El recital no ha sido encontrado en el repositorio");
-		} else {
+		try {
+			Recital recital = recitalRepository.findById(id);
 			return recital.getArtistasContratados();
+		} catch (Exception e) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
 		}
 	}
-	
-	public Recital buscarXId(int id)throws Exception{
-		Recital recital = this.recitalRepository.findById(id);
-		if (recital == null) {
-			throw new Exception("El recital no ha sido encontrado en el repositorio");
-		} else {
+
+	public Recital buscarXId(int id) throws Exception {
+		try {
+			Recital recital = this.recitalRepository.findById(id);
 			return recital;
+		} catch (Exception e) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
 		}
 	}
 
 	public void verEstadoRecital() throws Exception {
 		int id = 1;
-		Recital recital = recitalRepository.findById(id);
-		if (recital == null) {
-			throw new Exception("El recital no ha sido encontrado en el repositorio");
-		} else {
+		try {
+			Recital recital = recitalRepository.findById(id);
 			recital.verEstadoRecital();
+		} catch (Exception e) {
+			throw new Exception("El recital no ha sido encontrado en el repositorio");
 		}
 	}
-	
-	public List<Recital> getRecitales()
-	{
+
+	public List<Recital> getRecitales() {
 		return recitalRepository.getListaRecitales();
 	}
 }

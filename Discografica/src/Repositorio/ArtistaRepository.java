@@ -1,16 +1,16 @@
 package Repositorio;
 
-import java.util.Set;
-import java.util.HashSet;
+import java.util.List;
+import java.util.ArrayList;
 
 import Dominio.Artista;
 
 public class ArtistaRepository {
     private int nextId = 1;
-    private Set<Artista> artistas;
+    private List<Artista> artistas;
 
     public ArtistaRepository() {
-        this.artistas = new HashSet<>();
+        this.artistas = new ArrayList<>();
     }
 
     public void agregarArtista(Artista artista) {
@@ -18,19 +18,17 @@ public class ArtistaRepository {
         artistas.add(artista);
     }
 
-    public Set<Artista> getArtistas() {
+    public List<Artista> getArtistas() {
         return artistas;
     }
 
-    public Artista findById(int id) {
-        for (Artista artista : artistas) {
-            if (artista.getId() == id) {
-                return artista;
-            }
+    public Artista findById(int id) throws IndexOutOfBoundsException {
+        if (id > this.artistas.size() || id < 1) {
+            throw new IndexOutOfBoundsException("Indice incorrecto");
         }
-        return null;
+        return this.artistas.get(id - 1);
     }
-    
+
     public Artista findByNombre(String nombre) {
         for (Artista artista : artistas) {
             if (artista.getNombre().equalsIgnoreCase(nombre)) {

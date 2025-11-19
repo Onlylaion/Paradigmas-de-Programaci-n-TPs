@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Contrato {
 	private long idContrato;
@@ -43,19 +42,18 @@ public class Contrato {
 		return this.costoTotal;
 	}
 
-	
 	public void setIdContrato(long idContrato) {
 		this.idContrato = idContrato;
 	}
-	public void setArtistasAsignados(Map<Artista,Rol> artistas)
-	{
+
+	public void setArtistasAsignados(Map<Artista, Rol> artistas) {
 		this.artistasAsignados = artistas;
 	}
-	
+
 	// ============ MÉTODOS DE CONTRATO ============
 
 	// Contratar para una canción específica
-	public boolean contratoPorCancion(Set<Artista> artistasCandidatos) {//----------------------------------------MODIFICADO
+	public boolean contratoPorCancion(List<Artista> artistasCandidatos) {// ----------------------------------------MODIFICADO
 		List<Rol> rolesFaltantes = cancion.consultarRolesFaltantes();
 
 		for (Rol rol : rolesFaltantes) {
@@ -63,7 +61,7 @@ public class Contrato {
 			List<Artista> candidatosRestantes = new ArrayList<>(artistasCandidatos);
 			List<Artista> artistasNoPosibles = new ArrayList<>();
 
-			while(!asignado && !candidatosRestantes.isEmpty()) {
+			while (!asignado && !candidatosRestantes.isEmpty()) {
 				Artista artistaSeleccionado = buscarMejorArtistaParaRol(rol, candidatosRestantes, artistasNoPosibles);
 
 				if (artistaSeleccionado != null) {
@@ -73,7 +71,9 @@ public class Contrato {
 							costoTotal += costoFinal;
 							artistasAsignados.put(artistaSeleccionado, rol);
 							artistaSeleccionado.asignarACancion(this.cancion.getDuracion());
-							//System.out.println("Artista " + artistaSeleccionado.getNombre() + " asignado al rol " + rol + " para la cancion " + cancion.getNombreCancion() + " con un costo de $" + String.format("%.2f", costoFinal));
+							// System.out.println("Artista " + artistaSeleccionado.getNombre() + " asignado
+							// al rol " + rol + " para la cancion " + cancion.getNombreCancion() + " con un
+							// costo de $" + String.format("%.2f", costoFinal));
 
 							if (!recital.getArtistasContratados().contains(artistaSeleccionado)) {
 								recital.agregarArtistaContrato(artistaSeleccionado);
@@ -81,7 +81,8 @@ public class Contrato {
 							asignado = true;
 						}
 					} catch (Exception e) {
-						System.out.println("Error al contratar a " + artistaSeleccionado.getNombre() + " en " + rol + " para la cancion " + cancion.getNombreCancion() + ": " + e.getMessage());
+						System.out.println("Error al contratar a " + artistaSeleccionado.getNombre() + " en " + rol
+								+ " para la cancion " + cancion.getNombreCancion() + ": " + e.getMessage());
 						candidatosRestantes.remove(artistaSeleccionado);
 						artistasNoPosibles.add(artistaSeleccionado);
 					}
@@ -99,20 +100,18 @@ public class Contrato {
 		return false;
 	}
 
-
-
 	// Desasignar un artista del contrato
 	public void desasignarContrato(Artista artista) throws Exception {
 		boolean encontrado = false;
 		System.out.println("Desasignando artista: " + artista);
-		for(Artista a : this.artistasAsignados.keySet()) {
+		for (Artista a : this.artistasAsignados.keySet()) {
 			System.out.println("Artista en contrato: " + a);
 		}
 
 		if (this.artistasAsignados.containsKey(artista)) {
 			try {
 				Rol rol = this.artistasAsignados.getOrDefault(artista, null);
-				if(rol == null) {
+				if (rol == null) {
 					throw new Exception("Rol no encontrado para el artista en este contrato");
 				}
 				cancion.desocuparRol(artista, rol);
@@ -124,7 +123,6 @@ public class Contrato {
 				System.out.println("Error al desasignar: " + e.getMessage());
 			}
 		}
-		
 
 		if (!encontrado) {
 			throw new Exception("El artista " + artista.getNombre() + " no está en este contrato");
@@ -135,17 +133,18 @@ public class Contrato {
 
 	// ============ MÉTODOS PRIVADOS ============
 
-	private Artista buscarMejorArtistaParaRol(Rol rol, List<Artista> artistasCandidatos, List<Artista> artistasNoPosibles) {
+	private Artista buscarMejorArtistaParaRol(Rol rol, List<Artista> artistasCandidatos,
+			List<Artista> artistasNoPosibles) {
 		// Primero buscar en artistas BASE
 		for (Artista artista : recital.getArtistasBase()) {
-			if (artista.estaCalificadoParaLaCancion(rol) && !artistasNoPosibles.contains(artista) 
-				&& artista.tieneDisponibilidadHoraria(this.cancion.getDuracion())) {
-				
+			if (artista.estaCalificadoParaLaCancion(rol) && !artistasNoPosibles.contains(artista)
+					&& artista.tieneDisponibilidadHoraria(this.cancion.getDuracion())) {
+
 				return artista;
 			}
 		}
 
-		if(artistasCandidatos.isEmpty()) {
+		if (artistasCandidatos.isEmpty()) {
 			return null;
 		}
 		// Luego en candidatos -> elegir el más barato
@@ -153,9 +152,10 @@ public class Contrato {
 		double menorCosto = Double.MAX_VALUE;
 
 		for (Artista artista : artistasCandidatos) {
-			if (artista.estaCalificadoParaLaCancion(rol) && verificarDisponibilidad(artista, 1) 
-				&& !artistasNoPosibles.contains(artista) && artista.tieneDisponibilidadHoraria(this.cancion.getDuracion())) {
-					
+			if (artista.estaCalificadoParaLaCancion(rol) && verificarDisponibilidad(artista, 1)
+					&& !artistasNoPosibles.contains(artista)
+					&& artista.tieneDisponibilidadHoraria(this.cancion.getDuracion())) {
+
 				double costoConDescuento = calcularCostoConDescuentos(artista);
 				if (costoConDescuento < menorCosto) {
 					menorCosto = costoConDescuento;
@@ -170,18 +170,18 @@ public class Contrato {
 	private double calcularCostoConDescuentos(Artista artistaCandidato) {
 		double costo = artistaCandidato.getCosto();
 
-		if(!artistaCandidato.isDescuento()) {
+		if (!artistaCandidato.isDescuento()) {
 			for (Artista base : recital.getArtistasBase()) {
 				if (base.compartioBandaCon(artistaCandidato)) {
-						try {
-							artistaCandidato.aplicarDescuento();
-							costo = artistaCandidato.getCosto();
-						} catch (Exception e) {
-							// Ya tiene descuento
-						}
-						break;
+					try {
+						artistaCandidato.aplicarDescuento();
+						costo = artistaCandidato.getCosto();
+					} catch (Exception e) {
+						// Ya tiene descuento
 					}
+					break;
 				}
+			}
 		}
 
 		return costo;
@@ -201,7 +201,8 @@ public class Contrato {
 		for (Map.Entry<Artista, Rol> entry : artistasAsignados.entrySet()) {
 			Artista artista = entry.getKey();
 			Rol rol = entry.getValue();
-			System.out.println("  - " + artista.getNombre() + " (" + rol + ") | $" + String.format("%.2f", artista.getCosto()));
+			System.out.println(
+					"  - " + artista.getNombre() + " (" + rol + ") | $" + String.format("%.2f", artista.getCosto()));
 		}
 		System.out.println();
 
@@ -215,4 +216,3 @@ public class Contrato {
 				+ String.format("%.2f", costoTotal) + '}';
 	}
 }
-

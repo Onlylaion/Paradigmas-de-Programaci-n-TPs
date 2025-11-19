@@ -6,7 +6,7 @@ import java.util.List;
 import Dominio.Contrato;
 
 public class ContratoRepository {
-    private int idContrato=1;
+    private int idContrato = 1;
     private List<Contrato> contratos;
 
     public ContratoRepository() {
@@ -26,13 +26,11 @@ public class ContratoRepository {
         return contratos;
     }
 
-    public Contrato findById(int idContrato) {
-        for (Contrato contratoActual : contratos) {
-            if (contratoActual.getIdContrato() == idContrato) {
-                return contratoActual;
-            }
+    public Contrato findById(int idContrato) throws IndexOutOfBoundsException {
+        if (idContrato > this.contratos.size() || idContrato < 1) {
+            throw new IndexOutOfBoundsException("Indice incorrecto");
         }
-        return null;
+        return this.contratos.get(idContrato - 1);
     }
 
     public Contrato findByCancionId(long idCancion) {

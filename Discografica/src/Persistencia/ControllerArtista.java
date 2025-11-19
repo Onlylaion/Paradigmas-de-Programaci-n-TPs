@@ -2,7 +2,7 @@ package Persistencia;
 
 import Repositorio.ArtistaRepository;
 
-import java.util.Set;
+import java.util.List;
 
 import Dominio.Artista;
 import Dominio.Rol;
@@ -18,16 +18,16 @@ public class ControllerArtista {
         artistaRepository.agregarArtista(artista);
     }
 
-    public Artista findById(int id) throws Exception{
-    	Artista artist = artistaRepository.findById(id);
-    	if(artist == null) {
-    		throw new Exception("No existe tal artista");
-    	}else {
-    		return artist;
-    	}
+    public Artista findById(int id) throws Exception {
+        try {
+            Artista artist = artistaRepository.findById(id);
+            return artist;
+        } catch (Exception e) {
+            throw new Exception("No existe tal artista");
+        }
     }
 
-    public Set<Artista> obtenerTodosArtistas() {
+    public List<Artista> obtenerTodosArtistas() {
         return artistaRepository.getArtistas();
     }
 

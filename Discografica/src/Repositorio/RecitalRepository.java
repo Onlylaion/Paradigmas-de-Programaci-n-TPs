@@ -1,5 +1,6 @@
 package Repositorio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Dominio.Recital;
@@ -12,7 +13,7 @@ public class RecitalRepository {
 
     public RecitalRepository() {
         this.nextId = 1;
-        this.recitales = new java.util.ArrayList<>();
+        this.recitales = new ArrayList<>();
     }
 
     public void addRecital(Recital recital) {
@@ -45,15 +46,13 @@ public class RecitalRepository {
         }
     }
 
-    public Recital findById(int id) {
-        for (Recital recital : recitales) {
-            if (recital.getId() == id) {
-                return recital;
-            }
+    public Recital findById(int id) throws IndexOutOfBoundsException {
+        if (id > this.recitales.size() || id < 1) {
+            throw new IndexOutOfBoundsException("Indice incorrecto");
         }
-        return null;
+        return this.recitales.get(id - 1);
     }
-    
+
     public List<Recital> getListaRecitales() {
         return this.recitales;
     }

@@ -2,18 +2,17 @@ package Dominio;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 public class Recital {
 	private int idRecital;
-	private Set<Cancion> listaCanciones;
-	private Set<Artista> artistasBase;
-	private Set<Artista> artistasContratados;
+	private List<Cancion> listaCanciones;
+	private List<Artista> artistasBase;
+	private List<Artista> artistasContratados;
 	private LocalDate fecha;
 
 	// ============ CONSTRUCTOR ============
 
-	public Recital(Set<Cancion> listaCanciones, Set<Artista> artistasBase, Set<Artista> artistasContratados,
+	public Recital(List<Cancion> listaCanciones, List<Artista> artistasBase, List<Artista> artistasContratados,
 			LocalDate fecha) {
 		this.listaCanciones = listaCanciones;
 		this.artistasBase = artistasBase;
@@ -26,15 +25,15 @@ public class Recital {
 		return this.idRecital;
 	}
 
-	public Set<Cancion> getListaCanciones() {
+	public List<Cancion> getListaCanciones() {
 		return this.listaCanciones;
 	}
 
-	public Set<Artista> getArtistasBase() {
+	public List<Artista> getArtistasBase() {
 		return this.artistasBase;
 	}
 
-	public Set<Artista> getArtistasContratados() {
+	public List<Artista> getArtistasContratados() {
 		return this.artistasContratados;
 	}
 
@@ -47,7 +46,7 @@ public class Recital {
 		this.idRecital = id;
 	}
 
-	public void setArtistasBase(Set<Artista> artistasBase) {
+	public void setArtistasBase(List<Artista> artistasBase) {
 		this.artistasBase = artistasBase;
 	}
 
@@ -114,7 +113,7 @@ public class Recital {
 
 	// Obtener roles faltantes para una canción específica
 	public java.util.Map<Rol, Integer> getRolesFaltantesCancion(Cancion cancion) throws Exception {
-		if(!listaCanciones.contains(cancion))
+		if (!listaCanciones.contains(cancion))
 			throw new Exception("La cancion " + cancion.getNombreCancion() + " no está en este recital");
 		else
 			return cancion.getMapRoles();
@@ -149,7 +148,7 @@ public class Recital {
 			costoTotal += costo;
 			System.out.println("Nombre: " + artista.getNombre());
 			System.out.println("  Costo: $" + String.format("%.2f", costo));
-			System.out.println("  Canciones asignadas: " + artista.getCancionesAsignadas() + "/" 
+			System.out.println("  Canciones asignadas: " + artista.getCancionesAsignadas() + "/"
 					+ artista.getMaxCanciones());
 			System.out.println("  Entrenamientos: " + artista.cantidadEntrenamientos());
 			System.out.println();
@@ -184,8 +183,8 @@ public class Recital {
 				System.out.println("    - " + artista.getNombre());
 			}
 
-			for(Contrato contrato : contratos) {
-				if(contrato.getCancion().getId() == cancion.getId()) {
+			for (Contrato contrato : contratos) {
+				if (contrato.getCancion().getId() == cancion.getId()) {
 					System.out.println("  Contrato asociado:");
 					System.out.println("    Costo total: $" + String.format("%.2f", contrato.getCostoTotal()));
 				}
@@ -199,8 +198,9 @@ public class Recital {
 		System.out.println("Fecha del recital: " + fecha);
 		System.out.println("\nCanciones:");
 		for (Cancion cancion : listaCanciones) {
-			System.out.println("- Cancion: " + cancion.getNombreCancion() + " | Duracion: " + cancion.getDuracion() + " minutos");
-			
+			System.out.println(
+					"- Cancion: " + cancion.getNombreCancion() + " | Duracion: " + cancion.getDuracion() + " minutos");
+
 		}
 		System.out.println("Cantidad de canciones: " + listaCanciones.size());
 		System.out.println("\nArtistas Base:");

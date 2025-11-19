@@ -1,7 +1,7 @@
 package Servicio;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 import Dominio.Artista;
 import Dominio.Cancion;
@@ -45,8 +45,8 @@ public class LoteDePrueba {
 	public void cargarLoteDePrueba() {
 
 		// CARGA DE DATOS DE ARCHIVOS JSON
-		Set<Artista> artistas = ProcesadorJSON.cargarArtistas("src/ResourceJSON/artistas.json");
-		Set<Artista> artistasBases = ProcesadorJSON.cargarArtistasBase("src/ResourceJSON/artistas-incluidos.json");
+		List<Artista> artistas = ProcesadorJSON.cargarArtistas("src/ResourceJSON/artistas.json");
+		List<Artista> artistasBases = ProcesadorJSON.cargarArtistasBase("src/ResourceJSON/artistas-incluidos.json");
 		Recital recitalp = ProcesadorJSON.cargarRecital("src/ResourceJSON/recital.json");
 
 		// GUARDAR EN CONTROLLLERS
@@ -59,10 +59,10 @@ public class LoteDePrueba {
 		recitalp.setArtistasBase(artistasBases);
 		this.controllerRecital.agregarRecital(recitalp);
 
-		Set<Artista> artistasCandidatos = new HashSet<>(artistas);
+		List<Artista> artistasCandidatos = new LinkedList<>(artistas);
 		artistasCandidatos.removeAll(artistasBases);
 		this.controllerContrato = new ControllerContrato(recitalp, artistasCandidatos);
-		
+
 		System.out.println("\nCanciones:\n");
 		for (Cancion c : recitalp.getListaCanciones()) {
 			System.out.println(c);
