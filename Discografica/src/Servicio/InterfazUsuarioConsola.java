@@ -21,7 +21,7 @@ public class InterfazUsuarioConsola {
 	private ControllerRecital controladorRecital;
 	private ControllerArtista controladorArtista;
 	private Scanner scanner;
-	private LoteDePrueba loteDePrueba = new LoteDePrueba();
+	private FileReader loteDePrueba = new FileReader();
 	private ConsultaProlog PrologQuery = new ConsultaProlog("src/ResourceProlog/Entrenamiento.pro");
 
 	public InterfazUsuarioConsola() {

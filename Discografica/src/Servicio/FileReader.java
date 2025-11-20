@@ -12,13 +12,13 @@ import Persistencia.ControllerRecital;
 import Persistencia.ControllerContrato;
 import ResourceJSON.ProcesadorJSON;
 
-public class LoteDePrueba {
+public class FileReader {
 	private ControllerArtista controllerArtista;
 	private ControllerCancion controllerCancion;
 	private ControllerRecital controllerRecital;
 	private ControllerContrato controllerContrato;
 
-	public LoteDePrueba() {
+	public FileReader() {
 		this.controllerArtista = new ControllerArtista();
 		this.controllerCancion = new ControllerCancion();
 		this.controllerRecital = new ControllerRecital();
