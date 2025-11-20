@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-    <classpathentry kind="lib" path="lib/gson-2.10.1.jar"/>
-    <classpathentry kind="lib" path="lib/jpl.jar"/>
-    <classpathentry kind="output" path="bin"/>
+	<classpathentry kind="lib" path="lib/gson-2.10.1.jar"/>
+	<classpathentry kind="lib" path="lib/jpl.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

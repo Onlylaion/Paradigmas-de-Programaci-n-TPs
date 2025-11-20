@@ -22,8 +22,6 @@ public class FileReader {
 		this.controllerArtista = new ControllerArtista();
 		this.controllerCancion = new ControllerCancion();
 		this.controllerRecital = new ControllerRecital();
-
-		// this.controllerContrato = new ControllerContrato();
 	}
 
 	public ControllerArtista getControllerArtista() {

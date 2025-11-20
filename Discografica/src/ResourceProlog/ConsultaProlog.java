@@ -27,7 +27,7 @@ public class ConsultaProlog {
 				"artista('%s', [%s], %f)",
 				a.getNombre(),
 				roles,
-				a.getCosto());
+				a.getCostoCancionBase());
 	}
 
 	private String listaArtistasToProlog(List<Artista> artistas) {
