@@ -240,7 +240,8 @@ public class InterfazUsuarioConsola {
 				System.out.println(artista.getId() + " " + artista.getNombre());
 			}
 		} catch (Exception e) {
-			System.out.println("No hay artistas contratados");
+			System.out.println(e.getMessage());
+			return;
 		}
 
 		// Seleccionar artista a borrar

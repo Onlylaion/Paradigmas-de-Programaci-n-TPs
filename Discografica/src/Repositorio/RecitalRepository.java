@@ -17,7 +17,8 @@ public class RecitalRepository {
     }
 
     public void addRecital(Recital recital) {
-        recital.setId(nextId++);
+        recital.setId(nextId);
+        nextId++;
         recitales.add(recital);
     }
 

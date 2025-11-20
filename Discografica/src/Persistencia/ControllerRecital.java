@@ -56,13 +56,18 @@ public class ControllerRecital {
 	}
 
 	public List<Artista> getArtistasContratados() throws Exception {
-		int id = 1;
+		List<Artista> artistas = null;
 		try {
-			Recital recital = recitalRepository.findById(id);
-			return recital.getArtistasContratados();
+			Recital recital = recitalRepository.findById(1);
+			artistas = recital.getArtistasContratados();
 		} catch (Exception e) {
 			throw new Exception("El recital no ha sido encontrado en el repositorio");
 		}
+
+		if(artistas.isEmpty()) {
+			throw new Exception("No hay artistas contratados");
+		}
+		return artistas;
 	}
 
 	public Recital buscarXId(int id) throws Exception {

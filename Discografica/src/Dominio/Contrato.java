@@ -71,9 +71,6 @@ public class Contrato {
 							costoTotal += costoFinal;
 							artistasAsignados.put(artistaSeleccionado, rol);
 							artistaSeleccionado.asignarACancion(this.cancion.getDuracion());
-							// System.out.println("Artista " + artistaSeleccionado.getNombre() + " asignado
-							// al rol " + rol + " para la cancion " + cancion.getNombreCancion() + " con un
-							// costo de $" + String.format("%.2f", costoFinal));
 
 							if (!recital.getArtistasContratados().contains(artistaSeleccionado)) {
 								recital.agregarArtistaContrato(artistaSeleccionado);
@@ -103,10 +100,6 @@ public class Contrato {
 	// Desasignar un artista del contrato
 	public void desasignarContrato(Artista artista) throws Exception {
 		boolean encontrado = false;
-		System.out.println("Desasignando artista: " + artista);
-		for (Artista a : this.artistasAsignados.keySet()) {
-			System.out.println("Artista en contrato: " + a);
-		}
 
 		if (this.artistasAsignados.containsKey(artista)) {
 			try {
@@ -118,6 +111,12 @@ public class Contrato {
 				artista.desasignarDeCancion();
 				this.artistasAsignados.remove(artista);
 				recital.desagsignarArtista(artista);
+				
+				this.costoTotal -= artista.getCosto();
+				if(artista.isDescuento()) {
+					artista.quitarDescuento();
+				}
+
 				encontrado = true;
 			} catch (Exception e) {
 				System.out.println("Error al desasignar: " + e.getMessage());

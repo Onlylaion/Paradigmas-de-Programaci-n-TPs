@@ -150,10 +150,17 @@ public class Artista implements Comparable<Artista> {
 	}
 
 	public void aplicarDescuento() throws Exception {
-		if (this.descuento == true) {
+		if (this.descuento) {
 			throw new Exception("El artista ya tuvo el descuento aplicado");
 		}
 		this.descuento = true;
+	}
+
+	public void quitarDescuento() throws Exception {
+		if (!this.descuento) {
+			throw new Exception("El artista ya tuvo el descuento aplicado");
+		}
+		this.descuento = false;
 	}
 
 	/**
