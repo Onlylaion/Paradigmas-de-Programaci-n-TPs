@@ -142,19 +142,13 @@ public class Recital {
 			return;
 		}
 
-		double costoTotal = 0;
 		for (Artista artista : artistasContratados) {
-			double costo = artista.getCosto();
-			costoTotal += costo;
-			System.out.println("Nombre: " + artista.getNombre());
-			System.out.println("  Costo: $" + String.format("%.2f", costo));
+			System.out.println(artista);
 			System.out.println("  Canciones asignadas: " + artista.getCancionesAsignadas() + "/"
 					+ artista.getMaxCanciones());
 			System.out.println("  Entrenamientos: " + artista.cantidadEntrenamientos());
 			System.out.println();
 		}
-
-		System.out.println("COSTO TOTAL: $" + String.format("%.2f", costoTotal) + "\n");
 	}
 
 	// Listar canciones con estado

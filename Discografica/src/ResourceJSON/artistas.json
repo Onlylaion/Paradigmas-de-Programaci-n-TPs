@@ -10,7 +10,7 @@
     "costoCancionDesc": 0,
     "cancionesAsignadas": 0,
     "maxCanciones": 100,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 260
@@ -26,7 +26,7 @@
     "costoCancionDesc": 0,
     "cancionesAsignadas": 0,
     "maxCanciones": 100,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 300
@@ -42,7 +42,7 @@
     "costoCancionDesc": 0,
     "cancionesAsignadas": 0,
     "maxCanciones": 100,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 400
@@ -59,7 +59,7 @@
     "costoCancionDesc": 1000,
     "cancionesAsignadas": 0,
     "maxCanciones": 3,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 300
@@ -75,7 +75,7 @@
     "costoCancionDesc": 1200,
     "cancionesAsignadas": 0,
     "maxCanciones": 2,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 180
@@ -92,7 +92,7 @@
     "costoCancionDesc": 1500,
     "cancionesAsignadas": 0,
     "maxCanciones": 2,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 120
@@ -108,7 +108,7 @@
     "costoCancionDesc": 900,
     "cancionesAsignadas": 0,
     "maxCanciones": 2,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 60
@@ -124,7 +124,23 @@
     "costoCancionDesc": 800,
     "cancionesAsignadas": 0,
     "maxCanciones": 2,
-    "descuento": false,
+    "descuento": {},
+    "recargo": 0,
+    "rolesEntrenados": [],
+    "disponibilidadHoraria": 140
+  },
+  {
+    "id": 9,
+    "nombreArtista": "Hirai Momo",
+    "RolesHistoricos": ["Triangulista"],
+    "bandasHistoricas": [
+      { "nombreBanda": "Queen" }
+    ],
+    "costoCancionBase": 800,
+    "costoCancionDesc": 800,
+    "cancionesAsignadas": 0,
+    "maxCanciones": 2,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 140

@@ -10,7 +10,7 @@
     "costoCancionDesc": 0,
     "cancionesAsignadas": 0,
     "maxCanciones": 100,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 260
@@ -26,7 +26,7 @@
     "costoCancionDesc": 0,
     "cancionesAsignadas": 0,
     "maxCanciones": 100,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 300
@@ -42,7 +42,7 @@
     "costoCancionDesc": 0,
     "cancionesAsignadas": 0,
     "maxCanciones": 100,
-    "descuento": false,
+    "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
     "disponibilidadHoraria": 400

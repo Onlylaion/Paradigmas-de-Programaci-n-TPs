@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
 
 public class Artista implements Comparable<Artista> {
 	private int id;
@@ -14,9 +16,9 @@ public class Artista implements Comparable<Artista> {
 	private double costoCancionDesc;
 	private int cancionesAsignadas;
 	private int maxCanciones;
-	private boolean descuento;
+	private Map<Cancion, Boolean> descuento = new HashMap<>(); // Cancion y si tiene descuento o no
 	private double recargo;
-	private Set<Rol> rolesEntrenados;
+	private Set<Rol> rolesEntrenados = new HashSet<>();
 	private double disponibilidadHoraria;
 
 	public Artista(String nombreArtista, List<Rol> rolesHistoricos, List<Banda> bandasHistoricas,
@@ -28,9 +30,7 @@ public class Artista implements Comparable<Artista> {
 		this.costoCancionDesc = costoCancionBase * 0.5;
 		this.cancionesAsignadas = 0;
 		this.maxCanciones = maxCanciones;
-		this.descuento = false;
 		this.recargo = 0;
-		this.rolesEntrenados = new HashSet<>();
 		this.disponibilidadHoraria = disponibilidadHoraria;
 	}
 
@@ -67,8 +67,8 @@ public class Artista implements Comparable<Artista> {
 		return this.maxCanciones;
 	}
 
-	public boolean isDescuento() {
-		return this.descuento;
+	public boolean isDescuento(Cancion cancion) {
+		return this.descuento.getOrDefault(cancion, false);
 	}
 
 	public double getRecargo() {
@@ -86,8 +86,10 @@ public class Artista implements Comparable<Artista> {
 	// ============ MÉTODOS DEL DIAGRAMA ============
 
 	public boolean compartioBandaCon(Artista otroArtista) {
-		if (otroArtista == null)
+		if (otroArtista == null) {
 			return false;
+		}
+		
 		for (Banda banda : this.bandasHistoricas) {
 			for (Banda otraBanda : otroArtista.bandasHistoricas) {
 				if (banda.getNombreBanda().equals(otraBanda.getNombreBanda())) {
@@ -123,8 +125,8 @@ public class Artista implements Comparable<Artista> {
 	}
 
 	// Calcula el costo final (base o desc + recargo)
-	public double getCosto() {
-		double costoFinal = this.descuento ? this.costoCancionDesc : this.costoCancionBase;
+	public double getCosto(Cancion cancion) {
+		double costoFinal = this.descuento.getOrDefault(cancion, false) ? this.costoCancionDesc : this.costoCancionBase;
 		return costoFinal + this.recargo;
 	}
 
@@ -149,20 +151,21 @@ public class Artista implements Comparable<Artista> {
 		agregarRol(rol);
 	}
 
-	public void aplicarDescuento() throws Exception {
-		if (this.descuento) {
+	public void aplicarDescuento(Cancion cancion) throws Exception {
+		if (this.descuento.getOrDefault(cancion, false)) {
 			throw new Exception("El artista ya tuvo el descuento aplicado");
 		}
-		this.descuento = true;
+		this.costoCancionDesc = this.costoCancionBase * 0.5;
+		this.descuento.put(cancion, true);
 	}
 
-	public void quitarDescuento() throws Exception {
-		if (!this.descuento) {
+	public void quitarDescuento(Cancion cancion) throws Exception {
+		if (!this.descuento.getOrDefault(cancion, false)) {
 			throw new Exception("El artista ya tuvo el descuento aplicado");
 		}
-		this.descuento = false;
+		this.descuento.put(cancion, false);
+		this.costoCancionDesc = this.costoCancionBase;
 	}
-
 	/**
 	 * Asigna a una canción más
 	 */
@@ -192,10 +195,27 @@ public class Artista implements Comparable<Artista> {
 
 	@Override
 	public String toString() {
-		String cad = "Artista{" + "nombre='" + nombreArtista + '\'' + ", costo=$" + String.format("%.2f", getCosto())
+		String cad = "Artista{" + "nombre='" + nombreArtista + '\'' + ", costo base=$" + String.format("%.2f", getCostoCancionBase())
 				+ ", canciones=" + cancionesAsignadas + "/" + maxCanciones + '}';
 		for (Rol rol : RolesHistoricos) {
 			cad += "\n  - Rol historico: " + rol;
+		}
+		
+		if(rolesEntrenados == null || rolesEntrenados.isEmpty()) {
+			cad += "\n  - Sin roles entrenados";
+		}else {
+			for (Rol rol : rolesEntrenados) {
+				cad += "\n  - Rol entrenado: " + rol;
+			}
+		}
+
+		if (descuento == null || descuento.isEmpty()) {
+			cad += "\n  - Sin descuentos aplicados";
+		}else {
+			for (Map.Entry<Cancion, Boolean> entry : descuento.entrySet()) {
+				Cancion cancion = entry.getKey();
+				cad += "\n  - Descuento en cancion '" + cancion.getNombreCancion() + "': " + String.format("%.2f", getCosto(cancion));
+			}
 		}
 		return cad;
 	}

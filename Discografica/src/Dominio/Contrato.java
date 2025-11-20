@@ -112,9 +112,9 @@ public class Contrato {
 				this.artistasAsignados.remove(artista);
 				recital.desagsignarArtista(artista);
 				
-				this.costoTotal -= artista.getCosto();
-				if(artista.isDescuento()) {
-					artista.quitarDescuento();
+				this.costoTotal -= artista.getCosto(cancion);
+				if(artista.isDescuento(cancion)) {
+					artista.quitarDescuento(cancion);
 				}
 
 				encontrado = true;
@@ -167,16 +167,16 @@ public class Contrato {
 	}
 
 	private double calcularCostoConDescuentos(Artista artistaCandidato) {
-		double costo = artistaCandidato.getCosto();
+		double costo = artistaCandidato.getCosto(cancion);
 
-		if (!artistaCandidato.isDescuento()) {
+		if (!artistaCandidato.isDescuento(cancion)) {
 			for (Artista base : recital.getArtistasBase()) {
 				if (base.compartioBandaCon(artistaCandidato)) {
 					try {
-						artistaCandidato.aplicarDescuento();
-						costo = artistaCandidato.getCosto();
+						artistaCandidato.aplicarDescuento(cancion);
+						costo = artistaCandidato.getCosto(cancion);
 					} catch (Exception e) {
-						// Ya tiene descuento
+						System.out.println("Error al aplicar descuento a " + artistaCandidato.getNombre() + ": " + e.getMessage());
 					}
 					break;
 				}
@@ -201,11 +201,11 @@ public class Contrato {
 			Artista artista = entry.getKey();
 			Rol rol = entry.getValue();
 			System.out.println(
-					"  - " + artista.getNombre() + " (" + rol + ") | $" + String.format("%.2f", artista.getCosto()));
+					"  - " + artista.getNombre() + " (" + rol + ") | $" + String.format("%.2f", artista.getCosto(cancion)));
 		}
 		System.out.println();
 
-		System.out.println("COSTO TOTAL DEL CONTRATO: $" + String.format("%.2f", costoTotal));
+		System.out.println("COSTO TOTAL DEL CONTRATO: $" + String.format("%.2f", this.costoTotal));
 	}
 
 	@Override
