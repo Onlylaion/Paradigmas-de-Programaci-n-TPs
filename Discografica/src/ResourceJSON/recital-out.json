@@ -1,0 +1,799 @@
+{
+  "idRecital": 1,
+  "listaCanciones": [
+    {
+      "idCancion": 1,
+      "nombreCancion": "Somebody to Love",
+      "duracion": 4.95,
+      "mapRoles": {
+        "Triangulista": 0,
+        "Baterista": 0,
+        "Guitarrista": 0,
+        "Bajista": 0,
+        "Tecladista": 0,
+        "VozPrincipal": 0
+      },
+      "artistasAsignados": [
+        {
+          "id": 9,
+          "nombreArtista": "Hirai Momo",
+          "RolesHistoricos": [
+            "Triangulista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 800.0,
+          "costoCancionDesc": 400.0,
+          "cancionesAsignadas": 1,
+          "maxCanciones": 2,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 135.05
+        },
+        {
+          "id": 2,
+          "nombreArtista": "Roger Taylor",
+          "RolesHistoricos": [
+            "Baterista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 283.74000000000007
+        },
+        {
+          "id": 1,
+          "nombreArtista": "Brian May",
+          "RolesHistoricos": [
+            "Guitarrista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 243.73999999999998
+        },
+        {
+          "id": 3,
+          "nombreArtista": "John Deacon",
+          "RolesHistoricos": [
+            "Bajista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 383.74000000000007
+        },
+        {
+          "id": 5,
+          "nombreArtista": "Elton John",
+          "RolesHistoricos": [
+            "VozPrincipal",
+            "Tecladista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Elton John Band"
+            }
+          ],
+          "costoCancionBase": 1200.0,
+          "costoCancionDesc": 1200.0,
+          "cancionesAsignadas": 2,
+          "maxCanciones": 2,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 170.72
+        },
+        {
+          "id": 8,
+          "nombreArtista": "Lisa Stansfield",
+          "RolesHistoricos": [
+            "VozPrincipal"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Lisa Stansfield"
+            }
+          ],
+          "costoCancionBase": 800.0,
+          "costoCancionDesc": 800.0,
+          "cancionesAsignadas": 2,
+          "maxCanciones": 2,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 131.97
+        }
+      ]
+    },
+    {
+      "idCancion": 2,
+      "nombreCancion": "We Will Rock You",
+      "duracion": 3.08,
+      "mapRoles": {
+        "Baterista": 0,
+        "Guitarrista": 0,
+        "Bajista": 0,
+        "VozPrincipal": 0
+      },
+      "artistasAsignados": [
+        {
+          "id": 2,
+          "nombreArtista": "Roger Taylor",
+          "RolesHistoricos": [
+            "Baterista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 283.74000000000007
+        },
+        {
+          "id": 1,
+          "nombreArtista": "Brian May",
+          "RolesHistoricos": [
+            "Guitarrista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 243.73999999999998
+        },
+        {
+          "id": 3,
+          "nombreArtista": "John Deacon",
+          "RolesHistoricos": [
+            "Bajista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 383.74000000000007
+        },
+        {
+          "id": 8,
+          "nombreArtista": "Lisa Stansfield",
+          "RolesHistoricos": [
+            "VozPrincipal"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Lisa Stansfield"
+            }
+          ],
+          "costoCancionBase": 800.0,
+          "costoCancionDesc": 800.0,
+          "cancionesAsignadas": 2,
+          "maxCanciones": 2,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 131.97
+        },
+        {
+          "id": 7,
+          "nombreArtista": "Annie Lennox",
+          "RolesHistoricos": [
+            "VozPrincipal"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Eurythmics"
+            }
+          ],
+          "costoCancionBase": 900.0,
+          "costoCancionDesc": 900.0,
+          "cancionesAsignadas": 2,
+          "maxCanciones": 2,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 53.02
+        }
+      ]
+    },
+    {
+      "idCancion": 3,
+      "nombreCancion": "These Are the Days of Our Lives",
+      "duracion": 3.9,
+      "mapRoles": {
+        "Baterista": 0,
+        "Guitarrista": 0,
+        "Bajista": 0,
+        "VozPrincipal": 0
+      },
+      "artistasAsignados": [
+        {
+          "id": 2,
+          "nombreArtista": "Roger Taylor",
+          "RolesHistoricos": [
+            "Baterista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 283.74000000000007
+        },
+        {
+          "id": 1,
+          "nombreArtista": "Brian May",
+          "RolesHistoricos": [
+            "Guitarrista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 243.73999999999998
+        },
+        {
+          "id": 3,
+          "nombreArtista": "John Deacon",
+          "RolesHistoricos": [
+            "Bajista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 383.74000000000007
+        },
+        {
+          "id": 7,
+          "nombreArtista": "Annie Lennox",
+          "RolesHistoricos": [
+            "VozPrincipal"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Eurythmics"
+            }
+          ],
+          "costoCancionBase": 900.0,
+          "costoCancionDesc": 900.0,
+          "cancionesAsignadas": 2,
+          "maxCanciones": 2,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 53.02
+        }
+      ]
+    },
+    {
+      "idCancion": 4,
+      "nombreCancion": "Under Pressure",
+      "duracion": 4.33,
+      "mapRoles": {
+        "Baterista": 0,
+        "Guitarrista": 0,
+        "Bajista": 0,
+        "VozPrincipal": 0
+      },
+      "artistasAsignados": [
+        {
+          "id": 2,
+          "nombreArtista": "Roger Taylor",
+          "RolesHistoricos": [
+            "Baterista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 283.74000000000007
+        },
+        {
+          "id": 1,
+          "nombreArtista": "Brian May",
+          "RolesHistoricos": [
+            "Guitarrista",
+            "Corista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 243.73999999999998
+        },
+        {
+          "id": 3,
+          "nombreArtista": "John Deacon",
+          "RolesHistoricos": [
+            "Bajista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Queen"
+            }
+          ],
+          "costoCancionBase": 0.0,
+          "costoCancionDesc": 0.0,
+          "cancionesAsignadas": 4,
+          "maxCanciones": 100,
+          "descuento": {
+            "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+            "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+          },
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 383.74000000000007
+        },
+        {
+          "id": 4,
+          "nombreArtista": "George Michael",
+          "RolesHistoricos": [
+            "VozPrincipal"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Wham!"
+            },
+            {
+              "nombreBanda": "George Michael"
+            }
+          ],
+          "costoCancionBase": 1000.0,
+          "costoCancionDesc": 1000.0,
+          "cancionesAsignadas": 1,
+          "maxCanciones": 3,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 295.67
+        },
+        {
+          "id": 5,
+          "nombreArtista": "Elton John",
+          "RolesHistoricos": [
+            "VozPrincipal",
+            "Tecladista"
+          ],
+          "bandasHistoricas": [
+            {
+              "nombreBanda": "Elton John Band"
+            }
+          ],
+          "costoCancionBase": 1200.0,
+          "costoCancionDesc": 1200.0,
+          "cancionesAsignadas": 2,
+          "maxCanciones": 2,
+          "descuento": {},
+          "recargo": 0.0,
+          "rolesEntrenados": [],
+          "disponibilidadHoraria": 170.72
+        }
+      ]
+    }
+  ],
+  "artistasBase": [
+    {
+      "id": 1,
+      "nombreArtista": "Brian May",
+      "RolesHistoricos": [
+        "Guitarrista",
+        "Corista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 0.0,
+      "costoCancionDesc": 0.0,
+      "cancionesAsignadas": 4,
+      "maxCanciones": 100,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 243.73999999999998
+    },
+    {
+      "id": 2,
+      "nombreArtista": "Roger Taylor",
+      "RolesHistoricos": [
+        "Baterista",
+        "Corista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 0.0,
+      "costoCancionDesc": 0.0,
+      "cancionesAsignadas": 4,
+      "maxCanciones": 100,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 283.74000000000007
+    },
+    {
+      "id": 3,
+      "nombreArtista": "John Deacon",
+      "RolesHistoricos": [
+        "Bajista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 0.0,
+      "costoCancionDesc": 0.0,
+      "cancionesAsignadas": 4,
+      "maxCanciones": 100,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 383.74000000000007
+    }
+  ],
+  "artistasContratados": [
+    {
+      "id": 9,
+      "nombreArtista": "Hirai Momo",
+      "RolesHistoricos": [
+        "Triangulista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 800.0,
+      "costoCancionDesc": 400.0,
+      "cancionesAsignadas": 1,
+      "maxCanciones": 2,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 135.05
+    },
+    {
+      "id": 2,
+      "nombreArtista": "Roger Taylor",
+      "RolesHistoricos": [
+        "Baterista",
+        "Corista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 0.0,
+      "costoCancionDesc": 0.0,
+      "cancionesAsignadas": 4,
+      "maxCanciones": 100,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 283.74000000000007
+    },
+    {
+      "id": 1,
+      "nombreArtista": "Brian May",
+      "RolesHistoricos": [
+        "Guitarrista",
+        "Corista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 0.0,
+      "costoCancionDesc": 0.0,
+      "cancionesAsignadas": 4,
+      "maxCanciones": 100,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 243.73999999999998
+    },
+    {
+      "id": 3,
+      "nombreArtista": "John Deacon",
+      "RolesHistoricos": [
+        "Bajista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Queen"
+        }
+      ],
+      "costoCancionBase": 0.0,
+      "costoCancionDesc": 0.0,
+      "cancionesAsignadas": 4,
+      "maxCanciones": 100,
+      "descuento": {
+        "Cancion{nombre\u003d\u0027Somebody to Love\u0027, duracion\u003d4.95, artistas asignados\u003d6, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027We Will Rock You\u0027, duracion\u003d3.08, artistas asignados\u003d5, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027These Are the Days of Our Lives\u0027, duracion\u003d3.9, artistas asignados\u003d4, roles faltantes\u003d0}": true,
+        "Cancion{nombre\u003d\u0027Under Pressure\u0027, duracion\u003d4.33, artistas asignados\u003d5, roles faltantes\u003d0}": true
+      },
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 383.74000000000007
+    },
+    {
+      "id": 5,
+      "nombreArtista": "Elton John",
+      "RolesHistoricos": [
+        "VozPrincipal",
+        "Tecladista"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Elton John Band"
+        }
+      ],
+      "costoCancionBase": 1200.0,
+      "costoCancionDesc": 1200.0,
+      "cancionesAsignadas": 2,
+      "maxCanciones": 2,
+      "descuento": {},
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 170.72
+    },
+    {
+      "id": 8,
+      "nombreArtista": "Lisa Stansfield",
+      "RolesHistoricos": [
+        "VozPrincipal"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Lisa Stansfield"
+        }
+      ],
+      "costoCancionBase": 800.0,
+      "costoCancionDesc": 800.0,
+      "cancionesAsignadas": 2,
+      "maxCanciones": 2,
+      "descuento": {},
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 131.97
+    },
+    {
+      "id": 7,
+      "nombreArtista": "Annie Lennox",
+      "RolesHistoricos": [
+        "VozPrincipal"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Eurythmics"
+        }
+      ],
+      "costoCancionBase": 900.0,
+      "costoCancionDesc": 900.0,
+      "cancionesAsignadas": 2,
+      "maxCanciones": 2,
+      "descuento": {},
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 53.02
+    },
+    {
+      "id": 4,
+      "nombreArtista": "George Michael",
+      "RolesHistoricos": [
+        "VozPrincipal"
+      ],
+      "bandasHistoricas": [
+        {
+          "nombreBanda": "Wham!"
+        },
+        {
+          "nombreBanda": "George Michael"
+        }
+      ],
+      "costoCancionBase": 1000.0,
+      "costoCancionDesc": 1000.0,
+      "cancionesAsignadas": 1,
+      "maxCanciones": 3,
+      "descuento": {},
+      "recargo": 0.0,
+      "rolesEntrenados": [],
+      "disponibilidadHoraria": 295.67
+    }
+  ],
+  "fecha": "2025-01-01"
+}

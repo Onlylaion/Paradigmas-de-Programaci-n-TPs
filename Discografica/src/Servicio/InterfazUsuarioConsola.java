@@ -13,6 +13,7 @@ import Dominio.Artista;
 import Dominio.Cancion;
 import Dominio.Recital;
 import Dominio.Rol;
+import ResourceJSON.ProcesadorJSON;
 import ResourceProlog.ConsultaProlog;
 
 public class InterfazUsuarioConsola {
@@ -276,7 +277,14 @@ public class InterfazUsuarioConsola {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
+	}
+	
+	public void GuardarEstadoRecital()
+	{
+		for(Recital r:controladorRecital.getRecitales())
+		{
+			ProcesadorJSON.guardarRecital(r, "src\\ResourceJSON\\recital-out.json");
+		}
 	}
 
 }

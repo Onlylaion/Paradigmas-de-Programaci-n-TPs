@@ -76,6 +76,7 @@ public class Menu {
 				interfazUsuario.realizarConsultaMinimosProlog();
 				break;
 			case 11:
+				interfazUsuario.GuardarEstadoRecital();
 				System.out.println("\nSaliendo del sistema. Hasta luego!");
 				salir = true;
 				break;

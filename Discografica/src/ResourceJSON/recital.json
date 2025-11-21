@@ -5,7 +5,7 @@
     {
       "idCancion": 1,
       "nombreCancion": "Somebody to Love",
-      "duracion": 290,
+      "duracion": 4.95,
       "mapRoles": {
         "VozPrincipal": 1,
         "Guitarrista": 1,
@@ -21,7 +21,7 @@
     {
       "idCancion": 2,
       "nombreCancion": "We Will Rock You",
-      "duracion": 190,
+      "duracion": 3.08,
       "mapRoles": {
         "VozPrincipal": 2,
         "Guitarrista": 1,
@@ -35,7 +35,7 @@
     {
       "idCancion": 3,
       "nombreCancion": "These Are the Days of Our Lives",
-      "duracion": 235,
+      "duracion": 3.9,
       "mapRoles": {
         "VozPrincipal": 1,
         "Guitarrista": 1,
@@ -49,7 +49,7 @@
     {
       "idCancion": 4,
       "nombreCancion": "Under Pressure",
-      "duracion": 255,
+      "duracion": 4.33,
       "mapRoles": {
         "VozPrincipal": 2,
         "Guitarrista": 1,

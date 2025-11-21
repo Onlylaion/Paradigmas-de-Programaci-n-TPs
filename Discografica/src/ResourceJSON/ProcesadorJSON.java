@@ -13,6 +13,8 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.LinkedList;
 import java.time.LocalDate;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import Dominio.Artista;
 import Dominio.Recital;
@@ -36,7 +38,7 @@ public class ProcesadorJSON {
             reader.close();
             return recital;
         } catch (Exception e) {
-            e.printStackTrace();
+        	System.out.println(e.getMessage());
             return null;
         }
     }
@@ -56,7 +58,7 @@ public class ProcesadorJSON {
             return new LinkedList<>(artistas);
 
         } catch (Exception e) {
-            e.printStackTrace();
+        	System.out.println(e.getMessage());
             return null;
         }
     }
@@ -75,7 +77,7 @@ public class ProcesadorJSON {
             reader.close();
             return new LinkedList<>(artistas);
         } catch (Exception e) {
-            e.printStackTrace();
+        	System.out.println(e.getMessage());
             return null;
         }
     }
@@ -84,5 +86,17 @@ public class ProcesadorJSON {
         String base = System.getProperty("user.dir");
         return base + "/" + relativePath;
     }
+    public static void guardarRecital(Recital recital, String rutaArchivo) {
+        Gson gson = new GsonBuilder()
+                .setPrettyPrinting()
+                .registerTypeAdapter(LocalDate.class, new AdaptadorLocalDate()) // necesario
+                .create();
 
+        try (FileWriter writer = new FileWriter(rutaArchivo)) {
+            gson.toJson(recital, writer);
+            System.out.println("Recital guardado en " + rutaArchivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
