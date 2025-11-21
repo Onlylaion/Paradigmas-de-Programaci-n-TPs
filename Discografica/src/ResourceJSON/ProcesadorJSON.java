@@ -94,7 +94,7 @@ public class ProcesadorJSON {
 
         try (FileWriter writer = new FileWriter(rutaArchivo)) {
             gson.toJson(recital, writer);
-            System.out.println("Recital guardado en " + rutaArchivo);
+            System.out.println("\nEstado final de RECITAL guardado en la ruta '" + rutaArchivo+"'.");
         } catch (IOException e) {
             e.printStackTrace();
         }
