@@ -13,7 +13,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 260
+    "disponibilidadHoraria": 800
   },
   {
     "id": 2,
@@ -29,7 +29,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 300
+    "disponibilidadHoraria": 900
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 400
+    "disponibilidadHoraria": 1000
   },
   {
     "id": 4,
@@ -62,7 +62,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 300
+    "disponibilidadHoraria": 500
   },
   {
     "id": 5,
@@ -78,7 +78,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 180
+    "disponibilidadHoraria": 600
   },
   {
     "id": 6,
@@ -95,7 +95,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 120
+    "disponibilidadHoraria": 700
   },
   {
     "id": 7,
@@ -111,7 +111,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 60
+    "disponibilidadHoraria": 500
   },
   {
     "id": 8,
@@ -127,7 +127,7 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 140
+    "disponibilidadHoraria": 900
   },
   {
     "id": 9,
@@ -143,6 +143,6 @@
     "descuento": {},
     "recargo": 0,
     "rolesEntrenados": [],
-    "disponibilidadHoraria": 140
+    "disponibilidadHoraria": 750
   }
 ]
